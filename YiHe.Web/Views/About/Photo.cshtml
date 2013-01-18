@@ -1,0 +1,61 @@
+﻿@model YiHe.Model.Material.Part
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div id="maintop">
+    <h5 style="background: url('@Model.IconPath') no-repeat 4px 26px">@Model.Title</h5>
+</div>
+
+<div id="galleryContainer">
+    <div class="gallery_col">
+        @Html.Action("_Gallery", new { position = 1 })
+    </div>
+    <div class="gallery_col">
+        @Html.Action("_Gallery", new { position = 2 })
+        @Html.Action("_Gallery", new { position = 3 })
+    </div>
+    <div class="gallery_col">
+        @Html.Action("_Gallery", new { position = 4 })
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+
+            var gallery = $("div.gallery_v,div.gallery_h");
+            gallery.css('cursor', 'pointer');
+            gallery.hover(
+                function () {
+                    $(this).find('img').animate(
+                          { width: 160,
+                              marginTop: 10,
+                              marginLeft: 10
+                          }, 500);
+                },
+                function () {
+                    $(this).find('img').animate(
+                           { width: 300,
+                               marginTop: 0,
+                               marginLeft: 0
+                           }, 300);
+                }
+            );
+            gallery.bind('click', function () {
+                $(this).children('a:first').click();
+            });
+
+            $(".gallery_v a[rel^='photo'],.gallery_h a[rel^='photo']").prettyPhoto({
+                animation_speed: 'fast',
+                slideshow: 5000,
+                autoplay_slideshow: true,
+                hideflash: true,
+                social_tools: false
+            });
+
+        });
+    </script>
+}

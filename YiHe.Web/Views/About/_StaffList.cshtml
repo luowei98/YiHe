@@ -1,0 +1,37 @@
+﻿@using YiHe.Web.Core.Extensions
+
+@model IEnumerable<YiHe.Model.Material.Staff>
+
+<ul class="articlelist">
+
+    @foreach (var staff in Model)
+    {
+	    <li>
+
+		    <img class="staff_article_img" src="@Html.Encode(staff.Photo)" alt="@Html.Encode(staff.Name)" />
+
+            <div class="staff_description">
+
+		        <h4>@staff.Name</h4>
+
+                <p>出生年月：@staff.Birthday.ToString("yyyy年MM月")</p>
+
+                @if (!string.IsNullOrEmpty(staff.Qualification)) {
+                    <p>职业资质：@staff.Qualification</p>
+                }
+
+                @if (!string.IsNullOrEmpty(staff.Therapy)) {
+                    <p>治疗取向：@staff.Therapy</p>
+                }
+
+                @if (!string.IsNullOrEmpty(staff.Skill)) {
+                    <p>擅长领域：@staff.Skill</p>
+                }
+
+                <h4>自我介绍</h4>
+                @Html.SplitText(staff.Introduction)
+
+            </div>
+        </li>
+    }
+</ul>

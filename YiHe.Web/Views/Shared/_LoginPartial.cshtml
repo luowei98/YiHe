@@ -1,0 +1,4 @@
+﻿@if (!Request.IsAuthenticated)
+{
+    @:| @Html.ActionLink("Staff", "Login", "Account", routeValues: null, htmlAttributes: new {id = "loginLink", data_dialog_title = "Identification"})
+}

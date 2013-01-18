@@ -1,0 +1,32 @@
+﻿@using YiHe.Model.Library
+@model IEnumerable<Article>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr> 
+        <th>Title</th>
+        <th>Author</th>
+    </tr>
+    @foreach (Article item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.ArticleId})
+                @Ajax.ActionLink("Delete", "Delete", new {id = item.ArticleId},
+                                 new AjaxOptions
+                                 {
+                                     Confirm = "Delete Article?", HttpMethod = "Post",
+                                     UpdateTargetId = "divArticleList"
+                                 })              
+            </td>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                @item.Author
+            </td>
+        </tr>
+    }
+</table>

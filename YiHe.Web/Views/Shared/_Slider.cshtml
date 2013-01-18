@@ -1,0 +1,28 @@
+﻿@model IEnumerable<YiHe.Model.Navigation.Slider>
+
+<div id="slider">
+    <div class="ls_container">
+        <ul class="ls_slides">
+        @foreach (var item in Model)
+        {
+            <li>
+                <div class="thumbholder">
+                    <a href="@Html.Encode(item.Link)">
+                        <img src="@Html.Encode(item.Image)" alt="@Html.Encode(item.Title)" />
+                    </a>
+                </div>
+                <div class="txtholder">
+                    <h2>@Html.Encode(item.Title)</h2>
+                    <p>@Html.Encode(item.Description)</p>
+                </div>
+            </li>
+        }
+        </ul>
+    </div>
+    <ul class="ls_pagination">
+        @for (int i = 0; i < Model.Count(); i++ )
+        {
+            <li><a href="#">@i</a></li>
+        }
+    </ul>
+</div>

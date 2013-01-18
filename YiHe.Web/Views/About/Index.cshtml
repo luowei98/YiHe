@@ -1,0 +1,20 @@
+﻿@using YiHe.Web.Core.Extensions
+
+@model YiHe.Model.Material.Part
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div id="maintop">
+    <h5 style="background: url('@Model.IconPath') no-repeat 4px 26px">@Model.Title</h5>
+    @foreach (var e in Model.Elements)
+    {
+        @Html.SplitText(@e.Detail)
+    }
+</div>
+
+@if (Request.IsAuthenticated)
+{
+    @:编辑
+}

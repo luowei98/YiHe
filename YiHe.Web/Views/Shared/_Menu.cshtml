@@ -1,0 +1,55 @@
+﻿@using YiHe.Model.Navigation
+
+@model IEnumerable<Menu>
+
+@if (Model != null && Model.Any())
+{
+    Menu last = Model.Last();
+    Menu[] children = null;
+
+    <nav id="menu">
+        <ul>
+            @foreach (Menu m in Model)
+            {
+                var liclass = "";
+                if (m.UrlController == ViewBag.ActiveController)
+                {
+                    children = m.Children.ToArray();
+                    liclass = "selected";
+                }
+                if (m == last)
+                {
+                    liclass += " last";
+                }
+                <li class="@liclass">
+                    @Html.ActionLink(m.MenuText, m.UrlAction, m.UrlController)
+                </li>
+            }
+        </ul>
+    </nav>
+
+    if (children != null && children.Any())
+    {
+        Menu lastchild = children.Last();
+
+        <nav id="submenu">
+            <ul>
+                @foreach (Menu m in children)
+                {
+                    var liclass = "";
+                    if (m.UrlAction == ViewBag.ActiveAction)
+                    {
+                        liclass = "selected";
+                    }
+                    if (m == lastchild)
+                    {
+                        liclass += " last";
+                    }
+                    <li class="@liclass">
+                        @Html.ActionLink(m.MenuText, m.UrlAction, m.UrlController)
+                    </li>
+                }
+            </ul>
+        </nav>
+    }
+}

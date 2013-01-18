@@ -1,0 +1,10 @@
+﻿@model IEnumerable<YiHe.Model.Library.Article>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Category List</h2>
+   <div id="divArticleList">          
+    @Html.Partial("_ArticleList", Model)
+</div>

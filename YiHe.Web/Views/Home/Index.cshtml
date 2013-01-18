@@ -1,0 +1,67 @@
+﻿@model IEnumerable<YiHe.Model.Navigation.Menu>
+
+@{
+    Layout = "~/Views/Shared/_LayoutBase.cshtml";
+    ViewBag.Title = "欢迎您的到来";
+}
+
+@section Meta
+{
+    <meta name="description" content="易禾心理咨询中心为大家心理咨询服务、心理学文章、心理学资料、心理学讨论等丰富实用信息">
+    <meta name="keywords" content="心理学,咨询,治疗,文章,心理学资料,易禾心理,psychology">
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $('#sbi_container').bgImageMenu({
+                defaultBg: '@ViewBag.MainBackground',
+                width: 800,
+                height: 450,
+                border: 1,
+                type: {
+                    mode: '@ViewBag.AnimMode',
+                    speed: 250,
+                    easing: 'jswing',
+                    seqfactor: 100
+                }
+            });
+        });
+    </script>
+}
+
+<div id="sbi_container" class="sbi_container">
+    @foreach(var m in Model)
+    {
+        <div class="sbi_panel" data-bg="@Url.Content(m.BackgroundImage)">
+            @Html.ActionLink(m.MenuText, m.UrlAction, m.UrlController, null, new { @class = "sbi_label" })
+            @if(m.Children != null && m.Children.Any())
+            {
+                <div class="sbi_content">
+                    <ul>
+                        @foreach(var sm in m.Children)
+                        {
+                            <li>@Html.ActionLink(sm.MenuText, sm.UrlAction, sm.UrlController)</li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<div id="welcome_slogan">
+    风禾尽起 导德齐礼
+</div>
+
+@Html.Action("_Footer", "Shared")
+
+<div id="permit">
+    <p>苏ICP备12012303号</p>
+    <p>
+        <a href="http://www.szgswljg.gov.cn/getcompanyinfor.action?website1=www.easyhappysz.com" target="_blank">
+            <img src="http://www.szgswljg.gov.cn/images/szicb.gif?site=www.easyhappysz.com" alt=""/>
+        </a>
+    </p>
+</div>

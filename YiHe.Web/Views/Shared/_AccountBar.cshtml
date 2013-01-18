@@ -1,0 +1,16 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <div id="account_bar">
+        <div id="logout">
+            @Html.ActionLink("退出", "LogOff", "Account")
+        </div>
+        <div id="account_wrap">
+            <div id="account">
+                @Html.ActionLink(User.Identity.Name, "ChangePassword", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Change password" })
+            </div>
+        </div>
+        <div id="account_hi">
+            你好，
+        </div>
+    </div>
+}

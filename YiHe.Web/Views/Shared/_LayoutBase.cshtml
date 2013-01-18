@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        @RenderSection("Meta", false)
+        <meta name="author" content="易禾心理咨询中心" />
+        <title>@ViewBag.Title - 易禾心理咨询中心</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/themes/base/css")
+        <meta name="viewport" content="width=device-width" />
+        @Scripts.Render("~/Scripts/js")
+    </head>
+    <body>
+        @RenderBody()
+        @RenderSection("Scripts", required: false)
+    </body>
+</html>

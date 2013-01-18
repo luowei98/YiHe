@@ -1,0 +1,36 @@
+﻿@model IEnumerable<YiHe.Model.Navigation.OuterLink>
+
+<footer id="footer">
+    <p class="smallerfontsize">
+        Copyright © 2012 
+        <a href="/" title="Easy Happy Psychotherapy Center">
+            Easy Happy Psychotherapy Center.
+        </a>
+        All Rights Reserved.
+    </p>
+    <p>
+        <a href="/" title="苏州易禾心理咨询中心">
+            苏州易禾心理咨询中心
+        </a> 
+        版权所有 @Html.Partial("_LoginPartial")
+    </p>
+    @if (Model != null && Model.Any())
+    {
+        var last = Model.Last();
+        <p>
+            友情链接：
+            @foreach(var l in Model)
+            {
+                <a href="@l.Url" title="@l.Text">@l.Text</a>
+                if (l != last)
+                {
+                    @:|
+                }
+            }
+        </p>
+    }
+    <p class="smallerfontsize">
+        <a href="http://www.google.com.hk">Google</a> | 
+        <a href="http://www.baidu.com">Baidu</a>
+    </p>
+</footer>

@@ -1,0 +1,95 @@
+﻿/* 图片大小 625x238 */
+
+#slider {
+    width: 960px;
+    overflow: hidden;
+    height: 238px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.ls_container {
+    background: #f5f1e6;
+    height: 238px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#slider .ls_container h2 {
+    display: block;
+    color: #8b4513;
+    padding-top: 30px;
+    margin-bottom: 15px;
+}
+
+#slider .ls_container p {
+    display: block;
+    font-size: 16px;
+    color: #696969;
+    line-height: 22px;
+}
+
+ul.ls_slides {
+    display: block;
+    list-style: none;
+    position: relative;
+    width: 960px;
+    height: 238px;
+    margin: 0;
+    padding: 0;
+}
+
+ul.ls_slides li {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    width: 960px;
+    height: 238px;
+    margin: 0;
+    padding: 0;
+}
+
+ul.ls_slides li .thumbholder {
+    height: 238px;
+    width: 625px;
+    float: left;
+    position: relative;
+}
+
+ul.ls_slides li .txtholder {
+    width: 250px;
+    float: right;
+    padding-right: 40px;
+}
+
+#slider .ls_pagination {
+    display: block;
+    list-style: none;
+    position: absolute;
+    right: 34px;
+    top: 206px;
+    z-index: 999;
+    width: 260px;
+    text-align: center;
+}
+
+ul.ls_pagination li {
+    display: inline;
+}
+
+ul.ls_pagination li a {
+    display: block;
+    float: left;
+    width: 16px;
+    height: 16px;
+    background: url("/Images/plugins/loopedslider/slidernav.png") no-repeat;
+    text-indent: -9000px;
+    margin: 3px;
+}
+
+ul.ls_pagination li.active a {
+    background: url("/Images/plugins/loopedslider/slidernav-active.png") no-repeat !important;
+    text-indent: -9000px;
+}

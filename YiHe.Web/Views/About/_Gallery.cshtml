@@ -1,0 +1,21 @@
+﻿@model YiHe.Model.Material.OfficePhoto
+
+@if (Model != null)
+{
+    <div class="@ViewBag.DivClass">
+        <a href="@Url.Content(@Model.MainPhoto)" rel="photo[@Model.Name]">
+            <img src="@Url.Content(@Model.SmallerPhoto)" alt="@Model.Title" /> 
+        </a>
+        @foreach (var p in @Model.Details)
+        {
+            <a href="@Url.Content(@p.DetailPhoto)" rel="photo[@Model.Name]"></a>
+        }
+        <div class="gallery_info">  
+            <h2>@Model.Title</h2>  
+            <p>@Model.Description</p>  
+        </div>
+    </div>
+    
+    
+}
+

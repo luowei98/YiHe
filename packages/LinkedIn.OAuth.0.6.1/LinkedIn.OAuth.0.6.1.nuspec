@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>LinkedIn.OAuth</id>
+    <version>0.6.1</version>
+    <title>LinkedIn OAuth Library</title>
+    <authors>John Katsiotis, Thibaut Nguyen, Kostas Voulgaris</authors>
+    <owners>John Katsiotis, Thibaut Nguyen, Kostas Voulgaris</owners>
+    <projectUrl>http://john.katsiotis.com/blog/linked-in-oauth-library</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A library that simplifies the "Login with Linked-In" process inside a web application. Depends on Hammock.</description>
+    <releaseNotes>Added support for User Connections</releaseNotes>
+    <dependencies>
+      <dependency id="Hammock" version="1.2.7" />
+    </dependencies>
+    <references>
+      <reference file="LinkedIn.OAuth.dll" />
+    </references>
+  </metadata>
+</package>

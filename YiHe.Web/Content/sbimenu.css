@@ -1,0 +1,75 @@
+﻿.sbi_container{
+	position:relative;
+	margin:40px auto 20px;
+	overflow:hidden;
+	padding:2px;
+	background:#665b40;
+	-moz-box-shadow:1px 1px 5px #665b40;
+	-webkit-box-shadow:1px 1px 5px #665b40;
+	box-shadow:1px 1px 5px #665b40;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px 2px 2px 2px;
+	border:8px solid #fff;
+}
+.sbi_panel{
+	float:left;
+	position:relative;
+	height:100%;
+	overflow:hidden;
+}
+.sbi_panel_img{
+	position:absolute;
+	height:100%;
+	top:0px;
+	background-repeat:no-repeat;
+}
+.sbi_label{
+	display:block;
+	width:100%;
+	background:#665b40;
+	text-align:center;
+	font-size:18px;
+	height:40px;
+	line-height:40px;
+	position:absolute;
+	bottom:50px;
+	left:0px;
+	opacity:0.7;
+	cursor:pointer;
+	text-shadow:0px 0px 1px #665b40;
+	text-decoration:none;
+	color:#eee;
+	outline:none;	
+}
+.sbi_label:hover{
+	opacity:0.9;
+	color:#fff;
+}
+.sbi_content{
+	position:absolute;
+	border-top:1px solid #4d4430;
+	bottom:90px;
+	left:0px;
+	width:100%;
+	background:transparent url(/Images/plugins/sbimenu/pattern.png) repeat top left;
+	overflow:hidden;
+}
+.sbi_content ul{
+	padding:10px;
+}
+.sbi_content ul a{
+	display:block;
+	color:#eee;
+	font-size:16px;
+	padding:4px 6px 4px 14px;
+	background:transparent url(/Images/plugins/sbimenu/triangle.png) no-repeat 3px 50%;
+	opacity:0.9;
+}
+.sbi_content ul a:hover{
+	background-color:#332e20;
+	color:#fff;
+	-moz-box-shadow:1px 1px 5px #332e20;
+	-webkit-box-shadow:1px 1px 5px #332e20;
+	box-shadow:1px 1px 5px #332e20;
+}

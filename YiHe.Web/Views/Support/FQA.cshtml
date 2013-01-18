@@ -1,0 +1,25 @@
+﻿@using YiHe.Model.Material
+@model Part
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div id="maintop">
+    <h5 style="background: url('@Model.IconPath') no-repeat 4px 26px">@Model.Title</h5>
+</div>
+
+<dl class="faqs">
+    @foreach (Element e in Model.Elements)
+    {
+        <dt class="faq">
+            Q@(e.No). @e.Title
+            <span>点击看回答</span>
+        </dt>
+        <dd>
+            <div class="faq_a">答:</div>
+            <p>@e.Detail</p>
+            <span class="faq_a"></span>
+        </dd>
+    }
+</dl>
