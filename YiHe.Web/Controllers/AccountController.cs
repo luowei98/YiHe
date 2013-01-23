@@ -76,11 +76,11 @@ namespace YiHe.Web.Controllers
                         return RedirectToAction("Index", "Home");
                     }
 
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    ModelState.AddModelError("", "用户名或密码错误");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    ModelState.AddModelError("", "用户名或密码错误");
                 }
             }
 
@@ -105,7 +105,7 @@ namespace YiHe.Web.Controllers
                         return Json(new {success = true, redirect = returnUrl});
                     }
 
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    ModelState.AddModelError("", "用户名或密码错误");
                 }
             }
 
@@ -139,7 +139,7 @@ namespace YiHe.Web.Controllers
                         return Json(new {success = true});
                     }
 
-                    ModelState.AddModelError("", "An unknown error occurred.");
+                    ModelState.AddModelError("", "发生未知错误");
                 }
                 // If we got this far, something failed
                 return Json(new {errors = GetErrorsFromModelState()});
@@ -172,7 +172,7 @@ namespace YiHe.Web.Controllers
                         return RedirectToAction("Index", "Home");
                     }
 
-                    ModelState.AddModelError("", "An unknown error occurred.");
+                    ModelState.AddModelError("", "发生未知错误");
                 }
                 // If we got this far, something failed, redisplay form
                 return View(form);
@@ -189,7 +189,7 @@ namespace YiHe.Web.Controllers
 
         private ActionResult ContextDependentView()
         {
-            string actionName = this.ControllerName();
+            string actionName = this.ActionName();
             if (Request.QueryString["content"] != null)
             {
                 ViewBag.FormAction = "Json" + actionName;
@@ -227,7 +227,7 @@ namespace YiHe.Web.Controllers
                         return RedirectToAction("ChangePasswordSuccess");
                     }
 
-                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                    ModelState.AddModelError("", "用户名或密码错误");
                 }
             }
             // If we got this far, something failed, redisplay form

@@ -14,7 +14,7 @@
     }
 </div>
 
-@if (Request.IsAuthenticated)
+@if (User.IsAdminRole())
 {
     @:编辑
 }

@@ -1,13 +1,24 @@
 ﻿$(function () {
     // Cache for dialogs
     var dialogs = {};
+    
+    var para = {
+        centered: true,
+        overlaySpeed: 100,
+        onClose: function () {
+            resetForm($(this).find('form'));
+        },
+        onLoad: function () {
+            $(".modal-popup").find("input:first").focus();
+        }
+    };
 
     var getValidationSummaryErrors = function ($form) {
         // We verify if we created it beforehand
         var errorSummary = $form.find('.validation-summary-errors, .validation-summary-valid');
         if (!errorSummary.length) {
-            errorSummary = $('<div class="validation-summary-errors"><span>Please correct the errors and try again.</span><ul></ul></div>')
-                .prependTo($form);
+            errorSummary = $('<div class="validation-summary-errors"><span>请填写正确后再登录！</span><ul></ul></div>')
+                .prependTo($form.find('.validation-summary'));
         }
 
         return errorSummary;
@@ -22,7 +33,7 @@
             return '<li>' + error + '</li>';
         }).join('');
 
-        var ul = errorSummary
+        errorSummary
             .find('ul')
             .empty()
             .append(items);
@@ -34,7 +45,7 @@
 
         getValidationSummaryErrors($form)
             .removeClass('validation-summary-errors')
-            .addClass('validation-summary-valid')
+            .addClass('validation-summary-valid');
     };
 
     var formSubmitHandler = function (e) {
@@ -48,7 +59,7 @@
 
                     // In case of success, we redirect to the provided URL or the same page.
                     if (json.success) {
-                        location = json.redirect || location.href;
+                        window.location = json.redirect || window.location.href;
                     } else if (json.errors) {
                         displayErrors($form, json.errors);
                     }
@@ -62,7 +73,7 @@
         e.preventDefault();
     };
 
-    var loadAndShowDialog = function (id, link, url) {
+    var loadAndShowDialog = function(id, link, url) {
         var separator = url.indexOf('?') >= 0 ? '&' : '?';
 
         // Save an empty jQuery in our cache for now.
@@ -70,21 +81,14 @@
 
         // Load the dialog with the content=1 QueryString in order to get a PartialView
         $.get(url + separator + 'content=1')
-            .done(function (content) {
+            .done(function(content) {
                 dialogs[id] = $('<div class="modal-popup">' + content + '</div>')
                     .hide() // Hide the dialog for now so we prevent flicker
                     .appendTo(document.body)
                     .filter('div') // Filter for the div tag only, script tags could surface
-                    .dialog({ // Create the jQuery UI dialog
-                        title: link.data('dialog-title'),
-                        modal: true,
-                        resizable: true,
-                        draggable: true,
-                        width: link.data('dialog-width') || 600,
-                        beforeClose: function () { resetForm($(this).find('form')); }
-                    })
+                    .lightbox_me(para)
                     .find('form') // Attach logic on forms
-                        .submit(formSubmitHandler)
+                    .submit(formSubmitHandler)
                     .end();
             });
     };
@@ -100,7 +104,7 @@
             if (!dialogs[id]) {
                 loadAndShowDialog(id, link, url);
             } else {
-                dialogs[id].dialog('open');
+                dialogs[id].lightbox_me(para);
             }
 
             // Prevent the normal behavior since we use a dialog
