@@ -9,6 +9,11 @@
     @RenderSection("Meta", false)
 }
 
+@section Css
+{
+    @RenderSection("Css", required: false)
+}
+
 @section Scripts
 {
     <script type="text/javascript">
@@ -38,7 +43,7 @@
 <div id="wrap">
     <header id="header">
         @Html.Action("_Slider", "Shared")
-        @Html.Action("_Menu", "Shared", new {controller = @Html.ControllerName(), action = @Html.ActionName()})
+        @Html.Action("_Menu", "Shared", new {controller = @Html.ControllerName(), action = @Html.ActionName(), id = @Html.RouteId()})
     </header>
     <div id="main">
         @RenderBody()

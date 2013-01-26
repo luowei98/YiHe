@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutBase.cshtml";
+}
+
+<div id="body_backgroud">
+    <span id="site_logo"></span>
+</div>
+<div id="topbanner">
+    <h1><a id="site_name" href="/" title="易禾心理咨询中心">易禾心理咨询中心</a></h1>
+</div>
+<div id="wrap">
+    <header id="header" style="padding: 30px 0;">
+    </header>
+    <div id="main">
+        @RenderBody()
+    </div>
+    @Html.Action("_Footer", "Shared")
+</div>

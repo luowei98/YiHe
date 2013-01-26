@@ -9,6 +9,7 @@
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         @Styles.Render("~/Content/css")
         @*@Styles.Render("~/Content/themes/base/css")*@
+        @RenderSection("Css", required: false)
         <meta name="viewport" content="width=device-width" />
         @Scripts.Render("~/Scripts/js")
     </head>

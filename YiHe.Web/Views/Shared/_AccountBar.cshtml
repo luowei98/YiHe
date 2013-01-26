@@ -1,14 +1,12 @@
-﻿@using YiHe.Web.Core.Extensions
-
-@if (Request.IsAuthenticated)
+﻿@if (Request.IsAuthenticated)
 {
     <div id="account_bar">
         <div id="logout">
-            @Html.ActionLink("退出", "LogOff", "Account")
+            @Html.ActionLink("退出", "LogOff", "Account", new { returnurl = @Request.RawUrl }, null)
         </div>
         <div id="account_wrap">
             <div id="account">
-                @Html.ActionLink(User.Identity.Name, "ChangePassword", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Change password" })
+                @Html.ActionLink(User.Identity.Name, "ChangePassword", "Account", null, new { @class = "username", title = "Change password" })
             </div>
         </div>
         <div id="account_hi">

@@ -1,0 +1,74 @@
+﻿@model PaginationModel
+
+@{
+    var options = Model.AjaxOptions;
+}
+
+@if (Model.PaginationLinks.Count > 3)
+{
+    <div class="pager">
+	    @foreach (var link in Model.PaginationLinks)
+        {
+		    @BuildLink(link, options)
+        }
+    </div>
+}
+
+@helper BuildLink(PaginationLink link, AjaxOptions options)
+{
+	var liBuilder = new TagBuilder("span");
+	if (link.IsCurrent)
+	{
+		liBuilder.MergeAttribute("class", "current");
+	}
+	if (!link.Active)
+	{
+		liBuilder.MergeAttribute("class", "disabled");
+	}
+	
+	var tb = new TagBuilder("a");
+	if (link.Url != null)
+	{
+        tb.MergeAttribute("href", link.Url);
+
+        if (link.DisplayText == "«")
+	    {
+		    tb.SetInnerText("上一页");
+            liBuilder.MergeAttribute("class", "first");
+	    }
+	    else if (link.DisplayText == "»")
+	    {
+		    tb.SetInnerText("下一页");
+            liBuilder.MergeAttribute("class", "last");
+        }
+	    else
+	    {
+		    tb.SetInnerText(link.DisplayText);		
+	    }
+
+        tb.MergeAttribute("data-ajax", "true");
+        tb.MergeAttribute("data-ajax-update", "#" + options.UpdateTargetId);
+        tb.MergeAttribute("data-ajax-mode", "replace");
+        tb.MergeAttribute("data-ajax-begin", options.OnBegin);
+        tb.MergeAttribute("data-ajax-complete", options.OnComplete);
+        
+        liBuilder.InnerHtml = tb.ToString();
+    }
+    else
+    {
+        if (link.DisplayText == "«")
+        {
+            liBuilder.InnerHtml = "上一页";
+        }
+        else if (link.DisplayText == "»")
+        {
+            liBuilder.InnerHtml = "下一页";
+        }
+	    else
+	    {
+            liBuilder.InnerHtml = link.DisplayText;
+        }
+    }
+	
+	@Html.Raw(liBuilder.ToString())
+}

@@ -1,32 +1,65 @@
-﻿@using YiHe.Model.Library
-@model IEnumerable<Article>
+﻿@using YiHe.Web.Helpers
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr> 
-        <th>Title</th>
-        <th>Author</th>
-    </tr>
-    @foreach (Article item in Model)
+@model IPagedList<YiHe.Model.Library.Article>
+          
+@using MvcPaging
+
+<ul id="article-list">
+    @foreach (var article in Model)
     {
-        <tr>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new {id = item.ArticleId})
-                @Ajax.ActionLink("Delete", "Delete", new {id = item.ArticleId},
-                                 new AjaxOptions
-                                 {
-                                     Confirm = "Delete Article?", HttpMethod = "Post",
-                                     UpdateTargetId = "divArticleList"
-                                 })              
-            </td>
-            <td>
-                @item.Title
-            </td>
-            <td>
-                @item.Author
-            </td>
-        </tr>
+        <li class="article-list-warp">
+            <div class="article-list-img-warp">
+                <a href="@Url.Action("Article", new { id = article.ArticleId })">
+                    <img class="article-img" alt="@article.Title" src="@Url.Content("~/Images/" + @PathHelper.ArticleSmallPicture(article))" />
+                </a>
+            </div>
+            <div class="article-list-description">
+                <div class="article-list-title">
+                    <a href="@Url.Action("Article", new { id = article.ArticleId })">
+                        @article.Title
+                    </a>
+                </div>
+                <div class="article-list-info">
+                    @if (!string.IsNullOrWhiteSpace(@article.Author))
+                    {
+                        @Html.Encode("作者: ")<a href="#">@article.Author</a>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(@article.Author) && !string.IsNullOrWhiteSpace(@article.ExtractFrom))
+                    {
+                        @Html.Encode("  ")
+                    }
+                    @if (!string.IsNullOrWhiteSpace(@article.ExtractFrom))
+                    {
+                        @Html.Encode("出自: ")@article.ExtractFrom
+                    }
+                </div>
+                <div class="article-list-content">@TextHelper.Cut(article.Content, 140)</div>
+                <div class="article-list-info">@article.CreateTime.ToString("yyyy年MM月dd日") / 被围观 @article.BrowseTimes 次 / 分类：@article.Category.Name </div>
+            </div>
+            <ul class="article-list-tag">
+                @foreach (var tag in article.TripTags)
+                {
+                    <li>
+                        @Html.ActionLink(tag.Name, "Tag", new { tid = tag.TagId })
+                    </li>
+                }
+            </ul>
+        </li>
     }
-</table>
+</ul>
+
+<div id="pager-info">@Model.TotalItemCount 编文章中的 @Model.ItemStart - @Model.ItemEnd 编</div>
+@(Html.Pager(
+        Model.PageSize, 
+        Model.PageNumber, 
+        Model.TotalItemCount, 
+        new AjaxOptions 
+        {
+            UpdateTargetId = "article-list-container",
+            OnBegin = "on_begin_loading",
+            OnComplete = "on_complete_loading",
+        }
+    )
+    .Options(o => o
+        .DisplayTemplate("_Pager")
+        .Action("_ArticleList")))

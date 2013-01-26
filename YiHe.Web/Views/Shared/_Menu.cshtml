@@ -1,4 +1,5 @@
 ﻿@using YiHe.Model.Navigation
+@using YiHe.Web.Core.Extensions
 
 @model IEnumerable<Menu>
 
@@ -11,6 +12,10 @@
         <ul>
             @foreach (Menu m in Model)
             {
+                if (User.GetRoleID() < m.Role)
+                {
+                    continue;
+                }
                 var liclass = "";
                 if (m.UrlController == ViewBag.ActiveController)
                 {
@@ -36,6 +41,10 @@
             <ul>
                 @foreach (Menu m in children)
                 {
+                    if (User.GetRoleID() < m.Role)
+                    {
+                        continue;
+                    }
                     var liclass = "";
                     if (m.UrlAction == ViewBag.ActiveAction)
                     {

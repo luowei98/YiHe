@@ -58,6 +58,20 @@ namespace YiHe.Web.Core.Models
             get { return true; }
         }
 
+        public int RoleId
+        {
+            get
+            {
+                UserRoles role;
+                if (Enum.TryParse(RoleName, out role))
+                {
+                    return (int) role;
+                }
+
+                return 0;
+            }
+        }
+
         #endregion
     }
 }

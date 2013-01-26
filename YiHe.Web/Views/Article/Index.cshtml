@@ -1,10 +1,56 @@
-﻿@model IEnumerable<YiHe.Model.Library.Article>
-
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "文章";
 }
 
-<h2>Category List</h2>
-   <div id="divArticleList">          
-    @Html.Partial("_ArticleList", Model)
+<div id="maintop">
+    @if (ViewBag.CategoryTitle == null && ViewBag.TagTitle == null)
+    {
+        <h5 class="article-category-title">全部文章</h5>
+    }
+    else if (ViewBag.CategoryTitle != null)
+    {
+        <h5 class="article-category-title">@ViewBag.CategoryTitle</h5>
+    }
+    else if (ViewBag.TagTitle != null)
+    {
+        <h5 class="article-category-title">关键词：@ViewBag.TagTitle</h5>
+    }
 </div>
+
+<div id="article-list-container">
+    @Html.Action("_ArticleList")
+</div>
+
+<div id="article-right-container">
+    <div id="article-search">
+        @Html.Partial("_GoogleCSE")
+    </div>
+
+    <div id="article-tags">
+        <label>关键词：</label>
+        <div id="article-tag-words"></div>
+    </div>
+
+    <div id="article-hot">
+        <label>热门文章：</label>
+        <div id="article-hot-container">
+            @Html.Action("_HotArticle")
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        function on_begin_loading() {
+            jQuery('#article-list').showLoading();
+        }
+        function on_complete_loading() {
+            jQuery('#article-list').hideLoading();
+        }
+
+        $.getJSON("/Article/_TagsCloud", null, function (tagList) {
+            $("#article-tag-words").jQCloud(tagList);
+        });
+    </script>
+}

@@ -2,8 +2,11 @@
 
 
 @{
-    //Layout = "~/Views/Shared/_LayoutBase.cshtml";
-    ViewBag.Title = "»¶Ó­ÄúµÄµ½À´";
+    if (!ViewBag.IsAjax)
+    {
+        Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    }
+    ViewBag.Title = "µÇÂ¼";
 }
 
 @using (Html.BeginForm((string)ViewBag.FormAction, "Account"))

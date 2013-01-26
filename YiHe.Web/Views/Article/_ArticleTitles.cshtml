@@ -1,0 +1,17 @@
+﻿@model IEnumerable<YiHe.Model.Library.Article>
+
+<ul>
+    @{
+        var i = 1;
+    }
+    @foreach (var article in Model)
+    {
+        <li>
+            <div id="article-title-list">
+                <a href="@Url.Action("Article", new { id = article.ArticleId })">
+                    @(i++). @article.Title -- @article.Category.Name
+                </a>
+            </div>
+        </li>
+    }
+</ul>

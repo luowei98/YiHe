@@ -78,6 +78,9 @@
       <HintPath>..\packages\LinkedIn.OAuth.0.6.1\lib\LinkedIn.OAuth.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcPaging">
+      <HintPath>..\packages\MvcPaging.2.0.3\lib\net40\MvcPaging.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -184,12 +187,19 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ControllerHelper.cs" />
+    <Compile Include="Helpers\PagerHelper.cs" />
+    <Compile Include="Helpers\PathHelper.cs" />
+    <Compile Include="Helpers\TextHelper.cs" />
     <Compile Include="Mappers\AutoMapperConfiguration.cs" />
     <Compile Include="Mappers\DomainToViewModelMappingProfile.cs" />
     <Compile Include="Mappers\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="Mappers\DomainToModelMappingProfile.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ChangePasswordFormModel.cs" />
+    <Compile Include="Models\Library\ArticleModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ViewModels\LogOnFormModel.cs" />
     <Compile Include="ViewModels\UserFormModel.cs" />
   </ItemGroup>
@@ -301,23 +311,8 @@
     <Content Include="Images\article\category.png" />
     <Content Include="Images\article\search.png" />
     <Content Include="Images\article\searchbutton.png" />
-    <Content Include="Images\article\自我成长\一生的烦恼.jpg" />
-    <Content Include="Images\article\自我成长\一生的烦恼s.jpg" />
-    <Content Include="Images\article\自我成长\一生的烦恼和一滴油.jpg" />
-    <Content Include="Images\article\自我成长\别被自己伤害.jpg" />
-    <Content Include="Images\article\自我成长\别被自己伤害s.jpg" />
-    <Content Include="Images\article\自我成长\善良是一种能力.jpg" />
-    <Content Include="Images\article\自我成长\善良是一种能力s.jpg" />
-    <Content Include="Images\article\自我成长\忘了它是谁.jpg" />
-    <Content Include="Images\article\自我成长\忘了它是谁s.jpg" />
-    <Content Include="Images\article\自我成长\真假钟馗.jpg" />
-    <Content Include="Images\article\自我成长\真假钟馗s.jpg" />
-    <Content Include="Images\article\自我成长\自恋.jpg" />
-    <Content Include="Images\article\自我成长\自恋s.jpg" />
-    <Content Include="Images\article\自我成长\谈自杀.jpg" />
-    <Content Include="Images\article\自我成长\谈自杀s.jpg" />
-    <Content Include="Images\article\自我成长\轻视论.jpg" />
-    <Content Include="Images\article\自我成长\轻视论s.jpg" />
+    <Content Include="Images\article\影评\大悲无泪.jpg" />
+    <Content Include="Images\article\影评\大悲无泪s.jpg" />
     <Content Include="Images\contact\contact.png" />
     <Content Include="Images\contact\mail.png" />
     <Content Include="Images\contact\weibo.png" />
@@ -505,6 +500,24 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\form\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\DisplayTemplates\_Pager.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Article\_GoogleCSE.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Article\_ArticleTitles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Article\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Article\Article.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

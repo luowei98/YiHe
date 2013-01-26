@@ -17,6 +17,11 @@ namespace YiHe.Web.Core.Extensions
             return roles.Any(user.IsInRole);
         }
 
+        public static bool IsManagerRole(this IPrincipal user)
+        {
+            return InAnyRole(user, new[] {Roles.MANAGER});
+        }
+
         public static bool IsAdminRole(this IPrincipal user)
         {
             return InAnyRole(user, new[] {Roles.ADMIN});
@@ -28,6 +33,11 @@ namespace YiHe.Web.Core.Extensions
                 return (YiHeUser) principal.Identity;
 
             return new YiHeUser(string.Empty, new UserInfo());
+        }
+
+        public static int GetRoleID(this IPrincipal user)
+        {
+            return GetYiHeUser(user).RoleId;
         }
     }
 }

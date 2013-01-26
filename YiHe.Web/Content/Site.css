@@ -249,7 +249,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
     padding: 0 15px;
 }
 
-#submenu li.selected a, #submenu li a:hover { color: #222; }
+#submenu li.selected a, #submenu li a:hover { color: #000; }
 
 #submenu li.last a { border-right: solid 0; }
 
@@ -649,7 +649,7 @@ div#article-search {
 li.article-list-warp {
     border-bottom: 1px solid #ddd;
     margin-bottom: 6px;
-    padding: 10px;
+    padding: 20px 10px;
     overflow: hidden;
 }
 
@@ -657,10 +657,6 @@ div.article-list-img-warp {
     height: 135px;
     width: 135px;
     float: left;
-    border: solid 1px #eee;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
 }
 
 div.article-list-img-warp a {
@@ -691,7 +687,7 @@ div.article-list-description {
 
 div.article-list-title {
     font-size: 1.6em;
-    margin: 0 10px 2px;
+    margin: 0 10px 10px;
 }
 
 div.article-list-title a { color: #8b4513; }
@@ -700,7 +696,7 @@ div.article-list-title a:hover { color: #000; }
 
 div.article-list-info {
     color: #999;
-    margin: 2px 10px;
+    margin: 2px 10px 16px;
 }
 
 div.article-list-info a { color: #999; }
@@ -709,7 +705,8 @@ div.article-list-info a:hover { color: #696969; }
 
 div.article-list-content {
     font-size: 1.2em;
-    margin: 8px 10px 12px 30px;
+    margin: 8px 10px 20px 30px;
+    line-height: 1.6em;
 }
 
 ul.article-list-tag {
@@ -819,10 +816,6 @@ div.article-img-warp {
     height: 240px;
     width: 240px;
     float: left;
-    border: solid 1px #eee;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
     margin: 20px 20px 16px 40px;
 }
 

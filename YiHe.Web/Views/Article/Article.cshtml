@@ -1,0 +1,123 @@
+﻿@using YiHe.Web.Core.Extensions
+
+@model YiHe.Web.Models.Library.ArticleModel
+
+@{
+    ViewBag.Title = Model.Title + " - 文章";
+}
+
+<div id="maintop">
+</div>
+
+<div id="article-container">
+
+    <div class="article-title">@Html.DisplayFor(m => m.Title)</div>
+    <div class="article-info">
+        @if (!string.IsNullOrWhiteSpace(Model.Author))
+        {
+            @Html.LabelFor(m => m.Author)
+            <a href="#">@Html.DisplayFor(m => m.Author)</a>
+        }
+        @if (!string.IsNullOrWhiteSpace(Model.ExtractFrom))
+        {
+            @Html.LabelFor(m => m.ExtractFrom)
+            @Html.DisplayFor(m => m.ExtractFrom)
+        }
+    </div>
+    <div class="article-img-warp">
+        <div class="article-img-center">
+            <img class="article-img" alt="Model.Title" src="@Url.Content("~/Images/" + Model.PicturePath)" />
+        </div>
+    </div>
+
+    <div class="article-content">
+        @Html.SplitText(Model.Content)
+    </div>
+    <div class="article-info">
+        @Html.LabelFor(m => m.CreateTime)
+        @Html.DisplayFor(m => m.CreateTime)
+
+        @Html.LabelFor(m => m.BrowseTimes)
+        @Html.DisplayFor(m => m.BrowseTimes) 次
+    </div>
+
+    <div id="article-like">
+        <!-- Baidu Like Button BEGIN -->
+        <!-- ReSharper disable UnknownCssClass -->
+        <div class="bdlikebutton"></div>
+        <!-- ReSharper restore UnknownCssClass -->
+        <!-- Baidu Like Button END -->
+    </div>
+
+    <div id="article-share">
+        <!-- Baidu Share Button BEGIN -->
+        <!-- ReSharper disable UnknownCssClass -->
+        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+            <a class="bds_tsina"></a>
+            <a class="bds_tqq"></a>
+            <a class="bds_qzone"></a>
+            <a class="bds_renren"></a>
+            <a class="shareCount"></a>
+            <span class="bds_more"></span>
+        </div>
+        <!-- ReSharper restore UnknownCssClass -->
+        <!-- Baidu Share Button END -->
+    </div>
+</div>
+
+<div id="article-right-container">
+    <div id="article-relation">
+        <label>相关文章：</label>
+        <div id="article-relation-container">
+            @Html.Action("_RelationArticle", new { id = Model.ArticleId })
+        </div>
+    </div>
+
+    <div id="article-hot">
+        <label>热门文章：</label>
+        <div id="article-hot-container">
+            @Html.Action("_HotArticle")
+        </div>
+    </div>
+
+    <div id="article-tags">
+        <label>关键词：</label>
+        <div id="article-tag-words"></div>
+    </div>
+</div>
+
+
+@{
+    var keywords = ViewBag.Keywords + ",易禾心理,心理,文章";
+}
+
+@section Meta
+{
+    <meta name="description" content="易禾心理咨询中心文章">
+    <meta name="keywords" content="@keywords">
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $.getJSON("/Article/_TagsCloud", null, function (tagList) {
+            $("#article-tag-words").jQCloud(tagList);
+        });
+    </script>
+
+    <!-- Baidu Share Button BEGIN -->
+    <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=656581" ></script>
+    <script type="text/javascript" id="bdshell_js"></script>
+    <script type="text/javascript" id="bdlike_shell"></script>
+    <script type="text/javascript">
+        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+
+        var bdShare_config = {
+            "type": "small",
+            "color": "orange",
+            "uid": "656581"
+        };
+        document.getElementById("bdlike_shell").src = "http://bdimg.share.baidu.com/static/js/like_shell.js?t=" + new Date().getHours();
+    </script>
+    <!-- Baidu Like Button END -->
+}

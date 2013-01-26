@@ -69,9 +69,29 @@ namespace YiHe.Data.Infrastructure
             return dbset.Where(where).ToList();
         }
 
+        public virtual IEnumerable<T> GetManyTopBy(Expression<Func<T, long>> which, int count)
+        {
+            return dbset.OrderBy(which).Take(count).ToList();
+        }
+
+        public virtual IEnumerable<T> GetManyLastBy(Expression<Func<T, long>> which, int count)
+        {
+            return dbset.OrderByDescending(which).Take(count).ToList();
+        }
+
         public T Get(Expression<Func<T, bool>> where)
         {
             return dbset.Where(where).FirstOrDefault();
+        }
+
+        public T GetTopBy(Expression<Func<T, long>> which)
+        {
+            return dbset.OrderBy(which).FirstOrDefault();
+        }
+
+        public T GetLastBy(Expression<Func<T, long>> which)
+        {
+            return dbset.OrderByDescending(which).FirstOrDefault();
         }
     }
 }

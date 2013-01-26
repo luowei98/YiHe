@@ -24,19 +24,19 @@ namespace YiHe.Data.Repositories.Navigation
             Menu articleMenu = menus.SingleOrDefault(m => m.MenuId == 3); // 3 is 文章 id
             if (articleMenu != null)
             {
-                var categroySubMenu = articleMenu.Children;
-                if (categroySubMenu != null && categroySubMenu.Any())
+                var categorySubMenu = articleMenu.Children;
+                if (categorySubMenu != null && categorySubMenu.Any())
                 {
-                    Menu allCategroySubMenu = categroySubMenu.First();
+                    Menu allcategorySubMenu = categorySubMenu.First();
 
                     var categories = categoryRepository.GetAll();
                     foreach (var c in categories)
                     {
-                        categroySubMenu.Add(new Menu
+                        categorySubMenu.Add(new Menu
                                             {
                                                 MenuText = c.Name,
                                                 Position = c.CategoryId,
-                                                UrlController = allCategroySubMenu.UrlController,
+                                                UrlController = allcategorySubMenu.UrlController,
                                                 UrlAction = "Category" + c.CategoryId.ToString(),
                                             });
                     }

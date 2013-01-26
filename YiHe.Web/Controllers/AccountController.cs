@@ -30,9 +30,14 @@ namespace YiHe.Web.Controllers
             this.formAuthentication = formAuthentication;
         }
 
-        public ActionResult LogOff()
+        public ActionResult LogOff(string returnUrl)
         {
             formAuthentication.Signout();
+
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
             return RedirectToAction("Index", "Home");
         }
 
@@ -190,9 +195,12 @@ namespace YiHe.Web.Controllers
         private ActionResult ContextDependentView()
         {
             string actionName = this.ActionName();
+            ViewBag.IsAjax = false;
+
             if (Request.QueryString["content"] != null)
             {
                 ViewBag.FormAction = "Json" + actionName;
+                ViewBag.IsAjax = true;
                 return PartialView();
             }
 

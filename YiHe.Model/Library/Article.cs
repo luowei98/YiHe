@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.Linq;
 
 
 namespace YiHe.Model.Library
@@ -36,5 +37,15 @@ namespace YiHe.Model.Library
 
         public virtual Category Category { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
+
+        public IEnumerable<Tag> TripTags
+        {
+            get
+            {
+                return Tags
+                    .OrderByDescending(t => t.Used)
+                    .Take(3);
+            }
+        }
     }
 }

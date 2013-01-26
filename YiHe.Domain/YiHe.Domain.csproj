@@ -46,11 +46,13 @@
     <Compile Include="Commands\Library\DeleteCategoryCommand.cs" />
     <Compile Include="Commands\Library\CreateOrUpdateTagCommand.cs" />
     <Compile Include="Commands\Library\DeleteTagCommand.cs" />
+    <Compile Include="Commands\Library\AddBrowsetimesArticleCommand.cs" />
     <Compile Include="Commands\Navigation\UpdateMenuCommand.cs" />
     <Compile Include="Commands\Security\ChangePasswordCommand.cs" />
     <Compile Include="Commands\Security\UserRegisterCommand.cs" />
     <Compile Include="Handlers\Library\CanAddArticle.cs" />
     <Compile Include="Handlers\Library\CreateOrUpdateArticleHandler.cs" />
+    <Compile Include="Handlers\Library\AddBrowsetimesArticleHandler.cs" />
     <Compile Include="Handlers\Navigation\UpdateMenuHandler.cs" />
     <Compile Include="Handlers\Security\CanAddUser.cs" />
     <Compile Include="Handlers\Security\CanChangePassword.cs" />
