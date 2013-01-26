@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 using YiHe.Data.Repositories.Material;
 using YiHe.Data.Repositories.Navigation;
@@ -11,32 +10,24 @@ using YiHe.Web.Helpers;
 namespace YiHe.Web.Controllers
 {
     [CompressResponse]
-    public class AboutController : Controller
+    public class AboutController : BaseController
     {
-        private readonly IMenuRepository menuRepository;
         private readonly IOfficePhotoRepository officePhotoRepository;
-        private readonly IPartRepository partRepository;
         private readonly IStaffRepository staffRepository;
 
         public AboutController(IMenuRepository menuRepository,
                                IPartRepository partRepository,
                                IStaffRepository staffRepository,
                                IOfficePhotoRepository officePhotoRepository)
+            : base(menuRepository, partRepository)
         {
-            this.menuRepository = menuRepository;
-            this.partRepository = partRepository;
             this.staffRepository = staffRepository;
             this.officePhotoRepository = officePhotoRepository;
         }
 
-        public ActionResult Index()
-        {
-            return result();
-        }
-
         public ActionResult Staff()
         {
-            return result();
+            return base.DefaultResult();
         }
 
         public ActionResult _StaffList()
@@ -48,7 +39,7 @@ namespace YiHe.Web.Controllers
 
         public ActionResult Photo()
         {
-            return result();
+            return base.DefaultResult();
         }
 
         public ActionResult _Gallery(int position)
@@ -61,22 +52,7 @@ namespace YiHe.Web.Controllers
 
         public ActionResult News()
         {
-            return result();
-        }
-
-
-        private ActionResult result()
-        {
-            int id = ControllerHelper.ActionMenuId(ControllerContext, menuRepository);
-            IEnumerable<Part> parts = partRepository.GetMany(p => p.MenuId == id);
-
-            Part[] partsarr = parts as Part[] ?? parts.ToArray();
-            if (!partsarr.Any())
-            {
-                return new EmptyResult();
-            }
-
-            return View(partsarr.First());
+            return base.DefaultResult();
         }
     }
 }

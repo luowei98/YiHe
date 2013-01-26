@@ -1,0 +1,22 @@
+﻿@using YiHe.Web.Core.Extensions
+
+@model YiHe.Model.Material.Part
+
+@{
+    ViewBag.Title = Model.Title;
+    int i = 1;
+}
+
+<div id="maintop">
+    <h5 style="background: url('@Model.IconPath') no-repeat 4px 26px">@Model.Title</h5>
+</div>
+
+@foreach (var e in Model.Elements)
+{
+    <div class="fees">
+        <div id='@("order-title" + i.ToString())' class="order-title">@e.Title</div>
+        @Html.SplitText(@e.Detail)
+        <span>@e.SubDetail</span>
+    </div>
+    i++;
+}

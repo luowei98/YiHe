@@ -32,13 +32,13 @@ namespace YiHe.Web.Controllers
             var menus = menuRepository.GetAllWithCategories();
 
             ViewBag.ActiveController = controller;
-            if (action.ToLower() == "article")
+            if (action.ToLower() == "article")// && id.Length > 0)
             {
                 try
                 {
                     int aid = int.Parse(id);
-                    ViewBag.ActiveAction = "Category" + 
-                        articleRepository.GetById(aid).Category.CategoryId.ToString();
+                    ViewBag.ActiveAction = "Category" +
+                                           articleRepository.GetById(aid).Category.CategoryId.ToString();
                 }
                 catch
                 {

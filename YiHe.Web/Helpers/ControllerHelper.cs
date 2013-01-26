@@ -13,6 +13,11 @@ namespace YiHe.Web.Helpers
             string controller = context.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
             string action = context.Controller.ValueProvider.GetValue("action").RawValue.ToString();
 
+            return ActionMenuId(menuRepository, controller, action);
+        }
+
+        public static int ActionMenuId(IMenuRepository menuRepository, string controller, string action)
+        {
             Menu[] menus = menuRepository
                 .GetMany(m => m.UrlController == controller && m.UrlAction == action)
                 .ToArray();

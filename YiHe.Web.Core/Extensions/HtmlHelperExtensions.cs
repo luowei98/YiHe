@@ -22,9 +22,9 @@ namespace YiHe.Web.Core.Extensions
 
         public static string RouteId(this HtmlHelper helper)
         {
-            var provider = helper.ViewContext.Controller.ValueProvider;
+            IValueProvider provider = helper.ViewContext.Controller.ValueProvider;
 
-            foreach (var id in IDS.Select(provider.GetValue).Where(id => id != null))
+            foreach (ValueProviderResult id in IDS.Select(provider.GetValue).Where(id => id != null))
             {
                 return id.RawValue.ToString();
             }
@@ -37,10 +37,12 @@ namespace YiHe.Web.Core.Extensions
             return controller == helper.ControllerName() && action == helper.ActionName() ? "selected" : "";
         }
 
-        public static IHtmlString SplitText(this HtmlHelper helper, string text)
+        public static IHtmlString SplitText(this HtmlHelper helper, string text, string spliter = "p")
         {
-            var textarr = text.Split(new [] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
-            return helper.Raw("<p class='first-line'>" + string.Join("</p><p>", textarr) + "</p>");
+            string[] textarr = text.Split(new[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+            string contacter = string.Format("</{0}><{0}>", spliter);
+            string s = string.Format("<{0} class='first-line'>{1}</{0}>", spliter, string.Join(contacter, textarr));
+            return helper.Raw(s);
         }
     }
 }
