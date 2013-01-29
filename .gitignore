@@ -28,6 +28,6 @@ _ReSharper*/
 *.vssscc
 $tf*/
 
-WebSite/
+/WebSite
 Media/
-Web.Release.config
+/YiHe.Web/Web.Release.config
