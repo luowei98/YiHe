@@ -212,6 +212,7 @@
     <Content Include="Content\prettyPhoto.css" />
     <Content Include="Content\sbimenu.css" />
     <Content Include="Content\showLoading.css" />
+    <Content Include="Content\mediaelementplayer.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -320,6 +321,12 @@
     <Content Include="Images\contact\mail.png" />
     <Content Include="Images\contact\weibo.png" />
     <Content Include="Images\error\pagenotfound.png" />
+    <Content Include="Images\johndyer\background.png" />
+    <Content Include="Images\johndyer\bigplay.png" />
+    <Content Include="Images\johndyer\controls.png" />
+    <Content Include="Images\johndyer\flashmediaelement.swf" />
+    <Content Include="Images\johndyer\handle.png" />
+    <Content Include="Images\johndyer\loading.gif" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\menua-normal.png" />
     <Content Include="Images\menuactive.png" />
@@ -374,6 +381,8 @@
     <Content Include="Images\title.png" />
     <Content Include="Images\user\person.png" />
     <Content Include="Images\welcome.jpg" />
+    <Content Include="Media\Video\0.jpg" />
+    <Content Include="Media\Video\0.mp4" />
     <Content Include="Scripts\ajaxLogin.js" />
     <Content Include="Scripts\baiduAnalytics.js" />
     <Content Include="Scripts\jqcloud-1.0.0.js" />
@@ -401,6 +410,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\mediaelement-and-player.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -536,6 +546,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Contact\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Media\Video\0.webm" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

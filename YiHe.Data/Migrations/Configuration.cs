@@ -1,5 +1,7 @@
+using System;
 using System.Data.Entity.Migrations;
 using YiHe.Model.Navigation;
+using YiHe.Model.Security;
 
 
 namespace YiHe.Data.Migrations
@@ -14,6 +16,23 @@ namespace YiHe.Data.Migrations
         protected override void Seed(YiHeDataContex context)
         {
             //  This method will be called after migrating to the latest version.
+
+            // user
+            context.Users.AddOrUpdate(
+                p => p.FirstName,
+                new User
+                {
+                    UserId = 1,
+                    Email = "admin",
+                    FirstName = "admin",
+                    LastName = "admin",
+                    Password = "Abc!23",
+                    DateCreated = DateTime.Now,
+                    LastLoginTime = DateTime.Now,
+                    Activated = true,
+                    RoleId = 15,
+                }
+                );
 
             // menu
             var home = new Menu

@@ -7,3 +7,26 @@
 <div id="maintop">
     <h5 style="background: url('@Model.IconPath') no-repeat 4px 26px">@Model.Title</h5>
 </div>
+
+<div  id="support_video">
+    <video width="720" height="480" poster="/Media/Video/0.jpg" controls="controls" preload="none">
+        <source type="video/mp4" src="/Media/Video/0.mp4" />
+        <source type="video/webm" src="/Media/Video/0.webm" />
+        <object width="720" height="480" type="application/x-shockwave-flash" data="/Images/johndyer/flashmediaelement.swf"> 		
+            <param name="movie" value="/Images/johndyer/flashmediaelement.swf" /> 
+            <param name="flashvars" value="controls=true&amp;file=/Media/Video/0.mp4" /> 		
+            <img src="/Media/Video/0.jpg" width="720" height="480" alt="Here we are" 
+                title="No video playback capabilities" />
+        </object> 	
+    </video>
+</div>
+
+@section scripts{
+	<script type="text/javascript">
+	    $(document).ready(function () {
+	        $('video').mediaelementplayer({
+	            features: ['playpause', 'progress', 'current', 'duration', 'volume', 'fullscreen']
+	        });
+	    });
+	</script>
+}
