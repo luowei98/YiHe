@@ -275,6 +275,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\about\news.png" />
     <Content Include="Images\about\photo.png" />
     <Content Include="Images\about\photo\bookshelf.jpg" />
     <Content Include="Images\about\photo\rabbit.jpg" />

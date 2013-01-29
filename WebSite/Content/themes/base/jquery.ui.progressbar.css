@@ -1,19 +1,12 @@
 /*!
- * jQuery UI Progressbar 1.8.20
+ * jQuery UI Progressbar 1.9.1
+ * http://jqueryui.com
  *
- * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
- * Licensed under the MIT license.
+ * Copyright 2012 jQuery Foundation and other contributors
+ * Released under the MIT license.
  * http://jquery.org/license
  *
  * http://docs.jquery.com/UI/Progressbar#theming
  */
-.ui-progressbar {
-    height: 2em;
-    overflow: hidden;
-    text-align: left;
-}
-
-.ui-progressbar .ui-progressbar-value {
-    height: 100%;
-    margin: -1px;
-}
+.ui-progressbar { height:2em; text-align: left; overflow: hidden; }
+.ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }

@@ -1,13 +1,12 @@
 ﻿using System.Web.Mvc;
 using YiHe.Data.Repositories.Material;
 using YiHe.Data.Repositories.Navigation;
-using YiHe.Web.Core.ActionFilters;
 using YiHe.Web.Helpers;
 
 
 namespace YiHe.Web.Controllers
 {
-    [CompressResponse]
+    //[CompressResponse]
     public class BaseController : Controller
     {
         public readonly IMenuRepository MenuRepository;

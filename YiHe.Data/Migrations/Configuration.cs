@@ -26,7 +26,7 @@ namespace YiHe.Data.Migrations
                     Email = "admin",
                     FirstName = "admin",
                     LastName = "admin",
-                    Password = "Abc!23",
+                    Password = "123456",
                     DateCreated = DateTime.Now,
                     LastLoginTime = DateTime.Now,
                     Activated = true,
