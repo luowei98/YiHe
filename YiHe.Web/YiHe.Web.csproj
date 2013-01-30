@@ -385,7 +385,7 @@
     <Content Include="Media\Video\0.jpg" />
     <Content Include="Media\Video\0.mp4" />
     <Content Include="Scripts\ajaxLogin.js" />
-    <Content Include="Scripts\baiduAnalytics.js" />
+    <None Include="Scripts\baiduAnalytics.js1" />
     <Content Include="Scripts\jqcloud-1.0.0.js" />
     <Content Include="Scripts\jqcloud-1.0.0.min.js" />
     <Content Include="Scripts\jquery-1.8.3-vsdoc.js" />
@@ -426,8 +426,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />

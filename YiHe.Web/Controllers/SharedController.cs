@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using YiHe.Data.Repositories.Library;
 using YiHe.Data.Repositories.Navigation;
+using YiHe.Web.Core.Extensions;
 
 
 namespace YiHe.Web.Controllers
@@ -29,7 +29,7 @@ namespace YiHe.Web.Controllers
         [AllowAnonymous]
         public ActionResult _Menu(string controller, string action, string id)
         {
-            var menus = menuRepository.GetAllWithCategories();
+            var menus = menuRepository.GetAllWithCategories(User.GetRoleID());
 
             ViewBag.ActiveController = controller;
             if (action.ToLower() == "article")// && id.Length > 0)

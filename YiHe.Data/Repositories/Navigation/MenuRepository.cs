@@ -17,9 +17,9 @@ namespace YiHe.Data.Repositories.Navigation
             this.categoryRepository = categoryRepository;
         }
 
-        public IEnumerable<Menu> GetAllWithCategories()
+        public IEnumerable<Menu> GetAllWithCategories(int roleId)
         {
-            var menus = GetMany(m => m.Parent == null).OrderBy(m => m.Position);
+            var menus = GetMany(m => m.Parent == null && m.Role <= roleId).OrderBy(m => m.Position);
 
             Menu articleMenu = menus.SingleOrDefault(m => m.MenuId == 3); // 3 is 文章 id
             if (articleMenu != null)
@@ -54,6 +54,6 @@ namespace YiHe.Data.Repositories.Navigation
 
     public interface IMenuRepository : IRepository<Menu>
     {
-        IEnumerable<Menu> GetAllWithCategories();
+        IEnumerable<Menu> GetAllWithCategories(int roleId);
     }
 }

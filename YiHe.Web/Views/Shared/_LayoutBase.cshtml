@@ -3,14 +3,15 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=9" />
-        @RenderSection("Meta", false)
+        <meta name="description" content="苏州心理医生,苏州心理咨询师为你提供苏州心理健康、苏州心理治疗的服务,苏州易禾心理咨询给您供专业权威的苏州心理健康,苏州心理治疗服务苏州心理咨询,心理咨询,心理学,苏州心理咨询师,心理咨询师,易禾心理咨询" />
+        @RenderSection("Meta", required: false)
         <meta name="author" content="易禾心理咨询中心" />
+        <meta name="viewport" content="width=device-width" />
         <title>@ViewBag.Title - 易禾心理咨询中心</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         @Styles.Render("~/Content/css")
         @*@Styles.Render("~/Content/themes/base/css")*@
         @RenderSection("Css", required: false)
-        <meta name="viewport" content="width=device-width" />
         @Scripts.Render("~/Scripts/js")
     </head>
     <body>
