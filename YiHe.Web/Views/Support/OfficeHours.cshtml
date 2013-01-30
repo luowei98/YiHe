@@ -6,6 +6,11 @@
     ViewBag.Title = Model.Title;
 }
 
+@section Meta
+{
+    <meta name="keywords" content="心理咨询时,服务时间,中心开放时间" />
+}
+
 <div id="maintop">
     <h5 style="background: url('@Model.IconPath') no-repeat 4px 26px">@Model.Title</h5>
     @foreach (var e in Model.Elements)

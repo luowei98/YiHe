@@ -124,7 +124,9 @@ namespace YiHe.Web.Controllers
                           };
             commandBus.Submit(command);
 
-            ViewBag.Keywords = string.Join(",", article.Tags.Select(t => t.Name).Concat(new[] { article.Category.Name }));
+            ViewBag.Keywords = string.Join(",", article.Tags.Select(t => t.Name)) + "," +
+                               article.Category.Name + "," +
+                               ",易禾心理,心理,文章";
 
             var articleModel = Mapper.Map<Article, ArticleModel>(article);
 

@@ -6,6 +6,11 @@
     ViewBag.Title = Model.Title;
 }
 
+@section Meta
+{
+    <meta name="keywords" content="苏州心理咨询,心理咨询,苏州易禾心理,心理咨询师,心理学,咨询师,苏州心理老师,咨询中心,心理老师,关于易禾故事" />
+}
+
 <div id="maintop">
     <h5 style="background: url('@Model.IconPath') no-repeat 4px 26px">@Model.Title</h5>
     @foreach (var e in Model.Elements)
@@ -17,9 +22,4 @@
 @if (User.IsAdminRole())
 {
     @:编辑
-}
-
-@section Meta
-{
-    <meta name="keywords" content="苏州心理咨询,苏州心理医生,心理咨询,苏州易禾心理,心理学,苏州心理学,咨询师,心理咨询师,易禾心理咨询" />
 }

@@ -6,6 +6,11 @@
     ViewBag.Title = Model.Title + " - 文章";
 }
 
+@section Meta
+{
+    <meta name="keywords" content="@ViewBag.Keywords">
+}
+
 <div id="maintop">
 </div>
 
@@ -85,17 +90,6 @@
         <div id="article-tag-words"></div>
     </div>
 </div>
-
-
-@{
-    var keywords = ViewBag.Keywords + ",易禾心理,心理,文章";
-}
-
-@section Meta
-{
-    <meta name="description" content="易禾心理咨询中心文章">
-    <meta name="keywords" content="@keywords">
-}
 
 @section Scripts
 {
