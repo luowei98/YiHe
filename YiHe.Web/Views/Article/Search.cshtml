@@ -1,4 +1,6 @@
-﻿@{
+﻿@using YiHe.Web.Core.Extensions
+
+@{
     ViewBag.Title = "查询结果 - 文章";
 }
 
@@ -21,9 +23,8 @@
     </div>
 </div>
 
-@section Css
-{
-    <style type="text/css">
+@Html.Css(
+    @<style type="text/css">
         .gsc-control-cse {
             font-family: "微软雅黑", "黑体", "宋体", Arial, Helvetica, sans-serif;
             border-color: #FFFFFF;
@@ -152,12 +153,10 @@
             color: #009933;
         }
     </style>
-}
+)
 
-@section Scripts
-{
-    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-    <script type="text/javascript">
+@Html.Script(
+    @<script type="text/javascript">
         google.load('search', '1', { language: 'zh-CN', style: google.loader.themes.V2_DEFAULT });
         google.setOnLoadCallback(function () {
             var customSearchOptions = {}; var customSearchControl = new window.google.search.CustomSearchControl(
@@ -184,9 +183,13 @@
             }
         }, true);
     </script>
-    <script type="text/javascript">
-        $.getJSON("/Article/_TagsCloud", null, function (tagList) {
+)
+@Html.Script(@<script src="http://www.google.com/jsapi" type="text/javascript"></script>)
+
+@Html.Script(
+    @<script type="text/javascript">
+         $.getJSON("/Article/_TagsCloud", null, function (tagList) {
             $("#article-tag-words").jQCloud(tagList);
         });
     </script>
-}
+)

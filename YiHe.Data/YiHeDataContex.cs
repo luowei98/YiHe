@@ -17,6 +17,7 @@ namespace YiHe.Data
         public DbSet<Element> Elements { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<OfficePhoto> Photos { get; set; }
+        public DbSet<News> News { get; set; }
 
         public DbSet<Article> Articles { get; set; }
 

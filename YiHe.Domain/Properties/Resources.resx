@@ -120,6 +120,9 @@
   <data name="CategoryExists" xml:space="preserve">
     <value>Category is exists</value>
   </data>
+  <data name="NewsExists" xml:space="preserve">
+    <value>News is exists</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>The current password is incorrect</value>
   </data>

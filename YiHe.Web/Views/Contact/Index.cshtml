@@ -42,10 +42,9 @@
 
 <div id="map"></div>
 
-@section Scripts
-{
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
-    <script type="text/javascript">
+@Html.Script(@<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>)
+@Html.Script(
+    @<script type="text/javascript">
         var content = "<p style='font-size:14px;font-weight:bold;margin-bottom:10px'>易禾心理咨询中心</p>" +
                        "<p style='font-size:12px;'>苏州市沧浪区<br/>东大街&nbsp;240号</p>" +
                        "</div>";
@@ -62,4 +61,4 @@
 
         marker.openInfoWindow(infoWindow);
     </script>
-}
+)

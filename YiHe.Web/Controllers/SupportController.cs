@@ -1,15 +1,17 @@
 ﻿using System.Web.Mvc;
+using YiHe.CommandProcessor.Dispatcher;
 using YiHe.Data.Repositories.Material;
 using YiHe.Data.Repositories.Navigation;
 
 
 namespace YiHe.Web.Controllers
 {
-    public class SupportController : BaseController
+    public class SupportController : ControllerBase
     {
-        public SupportController(IMenuRepository menuRepository,
+        public SupportController(ICommandBus commandBus,
+                                 IMenuRepository menuRepository,
                                  IPartRepository partRepository)
-            : base(menuRepository, partRepository)
+            : base(commandBus, menuRepository, partRepository)
         {
         }
 

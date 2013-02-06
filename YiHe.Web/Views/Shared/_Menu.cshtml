@@ -42,7 +42,7 @@
                         continue;
                     }
                     var liclass = "";
-                    if (m.UrlAction == ViewBag.ActiveAction)
+                    if (((string)ViewBag.ActiveAction).EndsWith(m.UrlAction))
                     {
                         liclass = "selected";
                     }

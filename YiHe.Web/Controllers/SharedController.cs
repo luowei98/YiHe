@@ -32,7 +32,7 @@ namespace YiHe.Web.Controllers
             var menus = menuRepository.GetAllWithCategories(User.GetRoleID());
 
             ViewBag.ActiveController = controller;
-            if (action.ToLower() == "article")// && id.Length > 0)
+            if (action.ToLower() == "article")
             {
                 try
                 {

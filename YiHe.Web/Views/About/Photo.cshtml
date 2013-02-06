@@ -1,4 +1,6 @@
-﻿@model YiHe.Model.Material.Part
+﻿@using YiHe.Web.Core.Extensions
+
+@model YiHe.Model.Material.Part
 
 @{
     ViewBag.Title = Model.Title;
@@ -26,10 +28,9 @@
     </div>
 </div>
 
-@section Scripts
-{
-    <script type="text/javascript" charset="utf-8">
-        $(document).ready(function () {
+@Html.Script(
+    @<script type="text/javascript">
+         $(document).ready(function () {
 
             var gallery = $("div.gallery_v,div.gallery_h");
             gallery.css('cursor', 'pointer');
@@ -63,4 +64,4 @@
 
         });
     </script>
-}
+)

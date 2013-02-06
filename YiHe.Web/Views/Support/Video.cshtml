@@ -1,4 +1,6 @@
-﻿@model YiHe.Model.Material.Part
+﻿@using YiHe.Web.Core.Extensions
+
+@model YiHe.Model.Material.Part
 
 @{
     ViewBag.Title = Model.Title;
@@ -26,12 +28,12 @@
     </video>
 </div>
 
-@section scripts{
-	<script type="text/javascript">
-	    $(document).ready(function () {
+@Html.Script(
+    @<script type="text/javascript">
+         $(document).ready(function () {
 	        $('video').mediaelementplayer({
 	            features: ['playpause', 'progress', 'current', 'duration', 'volume', 'fullscreen']
 	        });
 	    });
 	</script>
-}
+)

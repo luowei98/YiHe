@@ -67,22 +67,31 @@ table {
 input[type="text"], input[type="password"], textarea {
     border: 1px solid #e5e5e5;
     background: #fff;
-    margin: 5px auto;
-    font-size: 14px;
+    margin: 2px 0 2px 20px;
+    font-size: 16px;
     display: block;
 	-moz-box-shadow: inset 0px 0px 4px #f0f0f0;
 	-webkit-box-shadow: inset 0px 0px 4px #f0f0f0;
 	box-shadow: inset 0px 0px 4px #f0f0f0;
+    width: 100%;
+    padding: 6px;
 }
 
 input[type="text"]:hover, input[type="password"]:hover, textarea:hover {
-    border: 1px solid #996;
+    border: 1px solid #cc9;
 }
 input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
-    border: 1px solid #cc9;
+    border: 1px solid #996;
 	background:#feffef;
 }
 
+.tip-memo {
+    color: #ddd;
+    margin: 8px 0 4px;
+}
+input.hidden {
+    display: none;
+}
 /* ---------------------------------------------------------------------------
 	backgroud
 --------------------------------------------------------------------------- */
@@ -592,50 +601,6 @@ ul.connect-links li.weibo a { background-image: url("/Images/contact/weibo.png")
 
 #maintop h5.article-category-title { background: url("/Images/article/category.png") no-repeat 4px 26px; }
 
-/*
-input#s {
-    background:url("/Images/article/search.png") no-repeat scroll 5px 6px transparent;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    line-height:1.2em;
-    padding:4px 10px 4px 28px;
-    -webkit-transition-duration: 400ms;
-    -webkit-transition-property: width, background;
-    -webkit-transition-timing-function: ease;
-    -moz-transition-duration: 400ms;
-    -moz-transition-property: width, background;
-    -moz-transition-timing-function: ease;
-    -o-transition-duration: 400ms;
-    -o-transition-property: width, background;
-    -o-transition-timing-function: ease;
-    width: 120px;
-}
-
-input.stxtfocus {
-    color:#ddd;
-}
-
-input#searchsubmit {
-    border: 1px solid #ddd;
-    font-size:14px;
-    height:28px;
-    padding-bottom:3px;
-    position:relative;
-    top:-1px;
-    width:50px;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    cursor: pointer;
-}
-
-input#searchsubmit:hover {
-    border: 1px solid #998961;
-    background-color:#f9f9f9;
-}
-*/
-
 div#article-search {
     margin: 4px 10px;
     padding: 4px 10px 10px 0;
@@ -873,11 +838,42 @@ div#article-share {
 /* ---------------------------------------------------------------------------
 	form
 --------------------------------------------------------------------------- */
+.form-field {
+}
+
+fieldset legend {
+    font-size: 1.6em;
+    margin-bottom: 30px;
+}
+
+.editor-label {
+    font-size: 1.4em;
+    margin: 5px 0 0 2em;
+    padding: 6px 0;
+    vertical-align: top;
+}
+
+.editor-field {
+    width: 50%;
+}
+
+.editor-field textarea {
+    width: 140%;
+}
+
+.editor-label, .editor-field {
+    display: inline-block;
+}
+
+.editor-message {
+    
+}
+
 .field-validation-error, .field-validation-valid, .validation-summary-errors{
 	color:#f66;
 	font-size:11px;
 	display:block;
-	margin:4px 40px;
+	margin:0px 40px;
     min-height: 18px;
     width: 60%;
 }
@@ -891,6 +887,35 @@ div#article-share {
     margin-bottom: 18px;
 }
 
+input[type="reset"], input[type="submit"] {
+    background: #998961;
+    color: #fff;
+    border: none;
+    padding: 8px 35px;
+    cursor: pointer;
+    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,.1);
+    -moz-box-shadow: 0 2px 0 rgba(0,0,0,.1);
+    box-shadow: 0 2px 0 rgba(0,0,0,.1);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-appearance: none;
+    font-size: 1.2em;
+}
+input[type="reset"]:hover, input[type="submit"]:hover {
+    background: #f60;
+    color: #fff;
+}
+
+.submit-wrap {
+    margin: 0 20px;
+    padding-left: 70%;
+}
+
+input.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
 /* ---------------------------------------------------------------------------
 	account login
 --------------------------------------------------------------------------- */
@@ -933,6 +958,7 @@ form.login{
 	padding: 9px 9px 9px 36px;
 	font-size:16px;
 	width:60%;
+    margin: 5px auto;
 }
 
 .login .bottom{
@@ -1061,4 +1087,106 @@ div.opt label{
 --------------------------------------------------------------------------- */
 #support_video {
     padding: 0 120px;
+}
+
+/* ---------------------------------------------------------------------------
+	news list page
+--------------------------------------------------------------------------- */
+
+#news-list-container {
+    width: 100%;
+}
+
+li.news-list-warp {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 6px;
+    padding: 20px 10px;
+    overflow: hidden;
+}
+
+div.news-list-img-warp {
+    width: 150px;
+    height: 150px;
+    float: left;
+}
+
+img.news-list-img {
+    max-width: 150px;
+    max-height: 150px;
+    width: expression(this.width > 150 ? "150px" : this.width);
+    height: expression(this.height > 150 ? "150px" : this.height);
+    overflow: hidden;
+}
+
+div.news-list-description {
+    float: left;
+    width: 770px;
+    padding-left: 16px;
+}
+
+div.news-list-title {
+    font-size: 2em;
+    margin: 0 10px 12px;
+}
+
+div.news-list-info {
+    color: #999;
+    margin: 6px 10px 2px;
+    float: right;
+}
+
+div.news-list-content {
+    font-size: 1.3em;
+    margin: 6px 10px 20px 34px;
+    line-height: 1.8em;
+    color: #666;
+    text-indent: 2em;
+}
+
+div.news-list-content p {
+    margin-bottom: 10px;
+}
+
+div.news-list-content p.first-line::first-letter {
+    font: 1.8em "微软雅黑",Georgia,Arial;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+div.news-list-edit {
+    margin: 24px 0 0 34px;
+}
+
+div.news-list-edit a {
+    font-size: 1.3em;
+    padding: 10px 20px 10px 0;
+    color: #000;
+}
+
+div.news-list-new {
+    border-bottom: 1px solid #e0e0e0;
+    margin: -18px 0 12px 0;
+    padding: 0 0 12px 0;
+    text-align: center;
+}
+
+div.news-list-new a {
+    font-size: 1.3em;
+    color: #000;
+}
+
+div.news-list-edit a:hover, div.news-list-new a:hover {
+    color: #f60;
+}
+
+/* ---------------------------------------------------------------------------
+	news edit page
+--------------------------------------------------------------------------- */
+.news-img {
+    margin-left: 20px;
+    border: 1px solid #eee;
+}
+
+#uploader-wrap {
+    margin-left: 108px;
 }

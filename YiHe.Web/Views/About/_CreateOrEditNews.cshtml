@@ -1,0 +1,98 @@
+﻿@using YiHe.Web.Core.Extensions
+@using YiHe.Web.Helpers
+
+@model YiHe.Web.ViewModels.Material.NewsFormModel
+
+<div class="editor-label">
+    @Html.LabelFor(m => m.Title)：
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(m => m.Title, new { placeholder = @Html.DisplayNameFor(m => m.Title) })
+</div>
+<div class="editor-message">
+    @Html.ValidationMessageFor(m => m.Title)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(m => m.Picture)：
+</div>
+<div class="editor-field">
+    <div class="news-img news-list-img-warp">
+        <img class="news-list-img" alt="" src="@Url.Content("~/Images/" + @PathHelper.NewsPicture(Model.Picture))" />
+    </div>
+    @Html.TextBoxFor(m => m.Picture, new { @class = "hidden" })
+</div>
+<div id="uploader-wrap">
+    <div id="uploader"></div>
+    <div class="tip-memo">
+        请上传大小为 150 x 150 的 png、jpg 或 gif 格式的图片
+    </div>
+</div>
+<div class="editor-message">
+    @Html.ValidationMessageFor(m => m.Picture)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(m => m.Content)：
+</div>
+<div class="editor-field">
+    @Html.TextAreaFor(m => m.Content, new { rows = "10", placeholder = @Html.DisplayNameFor(m => m.Content) })
+</div>
+<div class="editor-message">
+    @Html.ValidationMessageFor(m => m.Content)
+</div>    
+
+<div class="editor-label">
+    @Html.LabelFor(m => m.CreateTime)：
+</div>
+<div class="editor-field">
+    @Html.EditorFor(m => m.CreateTime, new { @Value = Model.CreateTime, placeholder = @Html.DisplayNameFor(m => m.CreateTime) })
+</div>
+<div class="editor-message">
+    @Html.ValidationMessageFor(m => m.CreateTime)
+</div>
+
+@Html.Script(
+    @* ReSharper disable UnusedLocals *@
+    @<script type="text/javascript">
+        $(document).ready(function() {
+            var uploader = new qq.FineUploader({
+                element: $('#uploader')[0],
+                multiple: false,
+                request: {
+                    endpoint: '/About/_UploadNewsPicture'
+                },
+                validation: {
+                    allowedExtensions: ['jpg', 'gif', 'png'],
+                    sizeLimit: 409600 // 400 kB = 400 * 1024 bytes
+                },
+                text: {
+                    uploadButton: '上 传 图 片',
+                    cancelButton: '点击取消',
+                    dragZone: '拖拽图片到这里上传',
+                    formatProgress: '{total_size} 中的 {percent}%',
+                    waitingForResponse: '正在上传 ...'
+                },
+                callbacks: {
+                    onComplete: function(id, fileName, responseJson) {
+                        if (responseJson.success) {
+                            $('.news-list-img').attr("src", responseJson.fullfilename);
+                            $('#Picture').val(responseJson.filename);
+                        }
+                    }
+                }
+            });
+        });
+
+        $(function() {
+            $("#CreateTime").datepicker({
+                dateFormat: 'yy-m-d',
+                monthNames: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                dayNamesMin: ['日', '一', '二', '三', '四', '五', '六']
+            });
+        });
+
+        $(":input[placeholder]").placeholder();
+    </script>
+    @* ReSharper restore UnusedLocals *@
+)

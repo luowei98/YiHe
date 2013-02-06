@@ -1,0 +1,27 @@
+﻿@model YiHe.Web.ViewModels.Material.NewsFormModel
+
+@{
+    ViewBag.Title = "编辑公司动态";
+}
+
+<div id="maintop">
+    <h5 style="background: url('/Images/admin/icon-admin.png') no-repeat 4px 26px">编辑公司动态</h5>
+</div>
+
+@using (Html.BeginForm("SaveNews", "About"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="form-field">
+        <fieldset>
+            <legend>公司动态：</legend>
+
+            @Html.HiddenFor(model => model.NewsId)
+            @Html.Partial("_CreateOrEditNews", Model)
+
+            <div class="submit-wrap">
+                <input type="submit" value="保  存" />
+            </div>
+        </fieldset>
+    </div>
+}

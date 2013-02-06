@@ -48,10 +48,15 @@
     <Compile Include="Migrations\201301170300307_Initial.Designer.cs">
       <DependentUpon>201301170300307_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201301300737263_AddNewsModel.cs" />
+    <Compile Include="Migrations\201301300737263_AddNewsModel.Designer.cs">
+      <DependentUpon>201301300737263_AddNewsModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\Library\ArticleRepository.cs" />
     <Compile Include="Repositories\Library\CategoryRepository.cs" />
     <Compile Include="Repositories\Library\TagRepository.cs" />
+    <Compile Include="Repositories\Material\NewsRepository.cs" />
     <Compile Include="Repositories\Material\StaffRepository.cs" />
     <Compile Include="Repositories\Material\ElementRepository.cs" />
     <Compile Include="Repositories\Material\PartRepository.cs" />
@@ -89,6 +94,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201301170300307_Initial.resx">
       <DependentUpon>201301170300307_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201301300737263_AddNewsModel.resx">
+      <DependentUpon>201301300737263_AddNewsModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

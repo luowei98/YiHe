@@ -10,7 +10,7 @@
         <li class="article-list-warp">
             <div class="article-list-img-warp">
                 <a href="@Url.Action("Article", new { id = article.ArticleId })">
-                    <img class="article-img" alt="@article.Title" src="@Url.Content("~/Images/" + @PathHelper.ArticleSmallPicture(article))" />
+                    <img class="article-list-img" alt="@article.Title" src="@Url.Content("~/Images/" + @PathHelper.ArticleSmallPicture(article))" />
                 </a>
             </div>
             <div class="article-list-description">

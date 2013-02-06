@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
 using YiHe.Model.Library;
+using YiHe.Model.Material;
 
 
 namespace YiHe.Web.Helpers
@@ -34,5 +35,11 @@ namespace YiHe.Web.Helpers
                 Path.GetFileNameWithoutExtension(article.Picture),
                 Path.GetExtension(article.Picture));
         }
+
+        public static string NewsPicture(string newsPicture)
+        {
+            return string.Format("about/news/{0}", newsPicture);
+        }
+
     }
 }

@@ -18,8 +18,18 @@ namespace YiHe.Web.AppStart
                 "~/Scripts/jquery.unobtrusive*",
                 "~/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/Scripts/js").Include(
-                "~/Scripts/*.js"));
+            bundles.Add(new ScriptBundle("~/Scripts/js")
+                .Include("~/Scripts/*.js")
+                .Include("~/Scripts/fineuploader/header.js")
+                .Include("~/Scripts/fineuploader/util.js")
+                .Include("~/Scripts/fineuploader/button.js")
+                .Include("~/Scripts/fineuploader/handler.base.js")
+                .Include("~/Scripts/fineuploader/handler.form.js")
+                .Include("~/Scripts/fineuploader/handler.xhr.js")
+                .Include("~/Scripts/fineuploader/uploader.basic.js")
+                .Include("~/Scripts/fineuploader/dnd.js")
+                .Include("~/Scripts/fineuploader/uploader.js")
+                .Include("~/Scripts/fineuploader/jquery-plugin.js"));
 
             // 使用 Modernizr 的开发版本进行开发和了解信息。然后，当你做好
             // 生产准备时，请使用 http://modernizr.com 上的生成工具来仅选择所需的测试。
@@ -42,7 +52,7 @@ namespace YiHe.Web.AppStart
                 "~/Content/themes/base/jquery.ui.progressbar.css",
                 "~/Content/themes/base/jquery.ui.theme.css"));
 
-            BundleTable.EnableOptimizations = true;
+            //BundleTable.EnableOptimizations = true;
         }
     }
 }

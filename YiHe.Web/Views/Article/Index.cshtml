@@ -1,4 +1,6 @@
-﻿@{
+﻿@using YiHe.Web.Core.Extensions
+
+@{
     ViewBag.Title = "文章";
 }
 
@@ -44,9 +46,8 @@
     </div>
 </div>
 
-@section Scripts
-{
-    <script type="text/javascript">
+@Html.Script(
+    @<script type="text/javascript">
         function on_begin_loading() {
             jQuery('#article-list').showLoading();
         }
@@ -58,4 +59,4 @@
             $("#article-tag-words").jQCloud(tagList);
         });
     </script>
-}
+)

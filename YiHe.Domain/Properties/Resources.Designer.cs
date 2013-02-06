@@ -70,6 +70,15 @@ namespace YiHe.Domain.Properties {
         }
         
         /// <summary>
+        ///   查找类似 News is exists 的本地化字符串。
+        /// </summary>
+        internal static string NewsExists {
+            get {
+                return ResourceManager.GetString("NewsExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 The current password is incorrect 的本地化字符串。
         /// </summary>
         internal static string Password {

@@ -192,6 +192,7 @@
     <Compile Include="Helpers\ControllerHelper.cs" />
     <Compile Include="Helpers\PagerHelper.cs" />
     <Compile Include="Helpers\PathHelper.cs" />
+    <Compile Include="Helpers\RegularHelper.cs" />
     <Compile Include="Helpers\TextHelper.cs" />
     <Compile Include="Mappers\AutoMapperConfiguration.cs" />
     <Compile Include="Mappers\DomainToViewModelMappingProfile.cs" />
@@ -204,9 +205,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModels\LogOnFormModel.cs" />
+    <Compile Include="ViewModels\Material\NewsFormModel.cs" />
     <Compile Include="ViewModels\UserFormModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\fileuploader.css" />
     <Content Include="Content\jqcloud.css" />
     <Content Include="Content\loopedslider.css" />
     <Content Include="Content\prettyPhoto.css" />
@@ -276,6 +279,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\about\news.png" />
+    <Content Include="Images\about\news\news.png" />
     <Content Include="Images\about\photo.png" />
     <Content Include="Images\about\photo\bookshelf.jpg" />
     <Content Include="Images\about\photo\rabbit.jpg" />
@@ -313,6 +317,7 @@
     <Content Include="Images\about\story.png" />
     <Content Include="Images\account\aiwrap.png" />
     <Content Include="Images\account\login.png" />
+    <Content Include="Images\admin\icon-admin.png" />
     <Content Include="Images\article\category.png" />
     <Content Include="Images\article\search.png" />
     <Content Include="Images\article\searchbutton.png" />
@@ -331,6 +336,8 @@
     <Content Include="Images\logo.png" />
     <Content Include="Images\menua-normal.png" />
     <Content Include="Images\menuactive.png" />
+    <Content Include="Images\plugins\fineuploader\loading.gif" />
+    <Content Include="Images\plugins\fineuploader\processing.gif" />
     <Content Include="Images\plugins\loopedslider\slidernav-active.png" />
     <Content Include="Images\plugins\loopedslider\slidernav.png" />
     <Content Include="Images\plugins\loopedslider\office.jpg" />
@@ -386,6 +393,16 @@
     <Content Include="Media\Video\0.mp4" />
     <Content Include="Scripts\ajaxLogin.js" />
     <Content Include="Scripts\baiduAnalytics.js" />
+    <Content Include="Scripts\fineuploader\button.js" />
+    <Content Include="Scripts\fineuploader\dnd.js" />
+    <Content Include="Scripts\fineuploader\handler.base.js" />
+    <Content Include="Scripts\fineuploader\handler.form.js" />
+    <Content Include="Scripts\fineuploader\handler.xhr.js" />
+    <Content Include="Scripts\fineuploader\header.js" />
+    <Content Include="Scripts\fineuploader\jquery-plugin.js" />
+    <Content Include="Scripts\fineuploader\uploader.basic.js" />
+    <Content Include="Scripts\fineuploader\uploader.js" />
+    <Content Include="Scripts\fineuploader\util.js" />
     <Content Include="Scripts\jqcloud-1.0.0.js" />
     <Content Include="Scripts\jqcloud-1.0.0.min.js" />
     <Content Include="Scripts\jquery-1.8.3-vsdoc.js" />
@@ -549,6 +566,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Media\Video\0.webm" />
+    <Content Include="Views\About\_NewsList.cshtml" />
+    <Content Include="Views\About\CreateNews.cshtml" />
+    <Content Include="Views\About\EditNews.cshtml" />
+    <Content Include="Views\About\_CreateOrEditNews.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

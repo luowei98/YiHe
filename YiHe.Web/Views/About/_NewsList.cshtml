@@ -1,0 +1,59 @@
+﻿@using YiHe.Web.Core.Extensions
+@using YiHe.Web.Helpers
+@using MvcPaging
+
+@model IPagedList<YiHe.Model.Material.News>
+          
+
+@if (User.IsAdminRole())
+{
+    <div class="news-list-new">
+        @Html.ActionLink("新增", "CreateNews", "About")
+    </div>
+}
+
+<ul id="news-list">
+    @foreach (var news in Model)
+    {
+        <li class="news-list-warp">
+            <div class="news-list-img-warp">
+                <img class="news-list-img" alt="@news.Title" src="@Url.Content("~/Images/" + @PathHelper.NewsPicture(news.Picture))" />
+            </div>
+            <div class="news-list-description">
+                <div class="news-list-title">
+                    @news.Title
+                </div>
+                <div class="news-list-content">
+                    @Html.SplitText(@news.Content)
+                </div>
+                <div class="news-list-info">@news.CreateTime.ToString("yyyy年MM月dd日")</div>
+                @if (User.IsAdminRole())
+                {
+                    <div class="news-list-edit">
+                        @Html.ActionLink("编辑", "EditNews", new {newsId = news.NewsId})
+                        @Ajax.ActionLink("删除", "DeleteNews", new { newsId = news.NewsId, page = Model.PageNumber },
+                              new AjaxOptions { Confirm = "删除 <" + @news.Title + "> 动态内容吗？", HttpMethod = "Post", UpdateTargetId = "news-list-container" })
+                    </div>
+                }
+            </div>
+        </li>
+    }
+</ul>
+
+@if (@Model.TotalItemCount > 0)
+{
+    <div id="pager-info">@Model.TotalItemCount 编动态中的 @Model.ItemStart - @Model.ItemEnd 编</div>
+    @(Html.Pager(
+          Model.PageSize,
+          Model.PageNumber,
+          Model.TotalItemCount,
+          new AjaxOptions
+          {
+              UpdateTargetId = "news-list-container",
+              OnBegin = "on_begin_loading",
+              OnComplete = "on_complete_loading",
+          }
+          )
+          .Options(o => o.DisplayTemplate("_Pager")
+                         .Action("_NewsList")))
+}

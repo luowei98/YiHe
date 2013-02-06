@@ -1,4 +1,6 @@
-﻿@model IEnumerable<YiHe.Model.Navigation.Menu>
+﻿@using YiHe.Web.Core.Extensions
+
+@model IEnumerable<YiHe.Model.Navigation.Menu>
 
 @{
     Layout = "~/Views/Shared/_LayoutBase.cshtml";
@@ -10,9 +12,8 @@
     <meta name="keywords" content="苏州心理咨询,心理咨询,苏州易禾心理,心理咨询师,心理学,咨询师,苏州心理老师">
 }
 
-@section Scripts
-{
-    <script type="text/javascript">
+@Html.Script(
+    @<script type="text/javascript">
         $(function () {
             $('#sbi_container').bgImageMenu({
                 defaultBg: '@ViewBag.MainBackground',
@@ -28,7 +29,7 @@
             });
         });
     </script>
-}
+)
 
 <div id="sbi_container" class="sbi_container">
     @foreach(var m in Model)

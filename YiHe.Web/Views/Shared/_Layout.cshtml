@@ -9,15 +9,9 @@
     @RenderSection("Meta", false)
 }
 
-@section Css
-{
-    @RenderSection("Css", required: false)
-}
-
-@section Scripts
-{
-    <script type="text/javascript">
-        $(function () {
+@Html.Script(
+    @<script type="text/javascript">
+         $(function () {
             $('#slider').loopedSlider({
                 container: ".ls_container",
                 slides: ".ls_slides",
@@ -29,8 +23,7 @@
         });
         $("#account_bar").slideToggle("slow");
     </script>
-    @RenderSection("Scripts", false)
-}
+)
 
 @Html.Partial("_AccountBar")
 

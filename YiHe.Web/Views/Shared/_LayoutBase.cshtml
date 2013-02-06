@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using YiHe.Web.Core.Extensions
+<!DOCTYPE html>
 <html lang="zh">
     <head>
         <meta charset="utf-8" />
@@ -10,12 +11,13 @@
         <title>@ViewBag.Title - 易禾心理咨询中心</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         @Styles.Render("~/Content/css")
-        @*@Styles.Render("~/Content/themes/base/css")*@
-        @RenderSection("Css", required: false)
+        @Styles.Render("~/Content/themes/base/css")
+        @Html.RenderScripts()
+        @*@RenderSection("Css", required: false)*@
         @Scripts.Render("~/Scripts/js")
     </head>
     <body>
         @RenderBody()
-        @RenderSection("Scripts", required: false)
+        @Html.RenderScripts()
     </body>
 </html>

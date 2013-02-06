@@ -47,6 +47,7 @@
     <Compile Include="Library\Article.cs" />
     <Compile Include="Library\Category.cs" />
     <Compile Include="Library\Tag.cs" />
+    <Compile Include="Material\News.cs" />
     <Compile Include="Material\Element.cs" />
     <Compile Include="Material\OfficePhoto.cs" />
     <Compile Include="Material\Part.cs" />
