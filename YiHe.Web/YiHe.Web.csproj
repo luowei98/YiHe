@@ -16,6 +16,10 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -186,6 +190,7 @@
     <Compile Include="Controllers\SupportController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\TrainController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -321,8 +326,140 @@
     <Content Include="Images\article\category.png" />
     <Content Include="Images\article\search.png" />
     <Content Include="Images\article\searchbutton.png" />
+    <Content Include="Images\article\亲子\21世纪成功家庭教育著名案例解析.jpg" />
+    <Content Include="Images\article\亲子\21世纪成功家庭教育著名案例解析s.jpg" />
+    <Content Include="Images\article\亲子\分享性经历.jpg" />
+    <Content Include="Images\article\亲子\分享性经历s.jpg" />
+    <Content Include="Images\article\亲子\学习的动力.jpg" />
+    <Content Include="Images\article\亲子\学习的动力s.jpg" />
+    <Content Include="Images\article\亲子\家庭教育50个错误.jpg" />
+    <Content Include="Images\article\亲子\家庭教育50个错误2.jpg" />
+    <Content Include="Images\article\亲子\家庭教育50个错误2s.jpg" />
+    <Content Include="Images\article\亲子\家庭教育50个错误s.jpg" />
+    <Content Include="Images\article\亲子\成熟的爱.jpg" />
+    <Content Include="Images\article\亲子\成熟的爱s.jpg" />
+    <Content Include="Images\article\亲子\把你的手给我--手淫.jpg" />
+    <Content Include="Images\article\亲子\把你的手给我--手淫s.jpg" />
+    <Content Include="Images\article\亲子\禁止的游戏.jpg" />
+    <Content Include="Images\article\亲子\禁止的游戏s.jpg" />
+    <Content Include="Images\article\亲子\脏话.jpg" />
+    <Content Include="Images\article\亲子\脏话s.jpg" />
+    <Content Include="Images\article\亲子\裸体.jpg" />
+    <Content Include="Images\article\亲子\裸体s.jpg" />
+    <Content Include="Images\article\亲子\隐藏的含义.jpg" />
+    <Content Include="Images\article\亲子\隐藏的含义s.jpg" />
+    <Content Include="Images\article\婚恋\不是附属品.jpg" />
+    <Content Include="Images\article\婚恋\不是附属品s.jpg" />
+    <Content Include="Images\article\婚恋\吸引力当爱情.jpg" />
+    <Content Include="Images\article\婚恋\吸引力当爱情s.jpg" />
+    <Content Include="Images\article\婚恋\天使并不慈悲.jpg" />
+    <Content Include="Images\article\婚恋\天使并不慈悲s.jpg" />
+    <Content Include="Images\article\婚恋\如何培养爱情智慧.jpg" />
+    <Content Include="Images\article\婚恋\如何培养爱情智慧2.jpg" />
+    <Content Include="Images\article\婚恋\如何培养爱情智慧2s.jpg" />
+    <Content Include="Images\article\婚恋\如何培养爱情智慧3.jpg" />
+    <Content Include="Images\article\婚恋\如何培养爱情智慧3s.jpg" />
+    <Content Include="Images\article\婚恋\如何培养爱情智慧s.jpg" />
+    <Content Include="Images\article\婚恋\婚姻不是谎言.jpg" />
+    <Content Include="Images\article\婚恋\婚姻不是谎言s.jpg" />
+    <Content Include="Images\article\婚恋\情场吸血鬼.jpg" />
+    <Content Include="Images\article\婚恋\情场吸血鬼s.jpg" />
+    <Content Include="Images\article\婚恋\暗恋.jpg" />
+    <Content Include="Images\article\婚恋\暗恋s.jpg" />
+    <Content Include="Images\article\婚恋\点评爱情.jpg" />
+    <Content Include="Images\article\婚恋\点评爱情s.jpg" />
+    <Content Include="Images\article\婚恋\烂桃花.jpg" />
+    <Content Include="Images\article\婚恋\烂桃花s.jpg" />
+    <Content Include="Images\article\婚恋\爱情贴士.jpg" />
+    <Content Include="Images\article\婚恋\爱情贴士s.jpg" />
+    <Content Include="Images\article\婚恋\父母看好我的爱.jpg" />
+    <Content Include="Images\article\婚恋\父母看好我的爱s.jpg" />
+    <Content Include="Images\article\婚恋\相亲.jpg" />
+    <Content Include="Images\article\婚恋\相亲s.jpg" />
+    <Content Include="Images\article\婚恋\纠结于为完成.jpg" />
+    <Content Include="Images\article\婚恋\纠结于为完成s.jpg" />
+    <Content Include="Images\article\婚恋\请爱对的人1.jpg" />
+    <Content Include="Images\article\婚恋\请爱对的人1s.jpg" />
+    <Content Include="Images\article\婚恋\请爱对的人2.jpg" />
+    <Content Include="Images\article\婚恋\请爱对的人2s.jpg" />
+    <Content Include="Images\article\影评\偷窥.jpg" />
+    <Content Include="Images\article\影评\偷窥s.jpg" />
     <Content Include="Images\article\影评\大悲无泪.jpg" />
     <Content Include="Images\article\影评\大悲无泪s.jpg" />
+    <Content Include="Images\article\心理故事\两个秀才遇见一口棺材.jpg" />
+    <Content Include="Images\article\心理故事\两个秀才遇见一口棺材s.jpg" />
+    <Content Include="Images\article\心理故事\从众效应.jpg" />
+    <Content Include="Images\article\心理故事\从众效应s.jpg" />
+    <Content Include="Images\article\心理故事\依恋心理.jpg" />
+    <Content Include="Images\article\心理故事\依恋心理s.jpg" />
+    <Content Include="Images\article\心理故事\失眠心理.jpg" />
+    <Content Include="Images\article\心理故事\失眠心理s.jpg" />
+    <Content Include="Images\article\心理故事\思维定势.jpg" />
+    <Content Include="Images\article\心理故事\思维定势s.jpg" />
+    <Content Include="Images\article\心理故事\感觉剥夺.jpg" />
+    <Content Include="Images\article\心理故事\感觉剥夺s.jpg" />
+    <Content Include="Images\article\心理故事\抱怨.jpg" />
+    <Content Include="Images\article\心理故事\抱怨s.jpg" />
+    <Content Include="Images\article\心理故事\木鸡效应.jpg" />
+    <Content Include="Images\article\心理故事\木鸡效应s.jpg" />
+    <Content Include="Images\article\心理故事\注意选择.jpg" />
+    <Content Include="Images\article\心理故事\注意选择s.jpg" />
+    <Content Include="Images\article\心理故事\潜在学习.jpg" />
+    <Content Include="Images\article\心理故事\潜在学习s.jpg" />
+    <Content Include="Images\article\心理故事\空虚.jpg" />
+    <Content Include="Images\article\心理故事\空虚s.jpg" />
+    <Content Include="Images\article\心理故事\紧张.jpg" />
+    <Content Include="Images\article\心理故事\紧张s.jpg" />
+    <Content Include="Images\article\心理故事\维多利亚.jpg" />
+    <Content Include="Images\article\心理故事\维多利亚s.jpg" />
+    <Content Include="Images\article\心理故事\肢体语言的心理暗示.jpg" />
+    <Content Include="Images\article\心理故事\肢体语言的心理暗示s.jpg" />
+    <Content Include="Images\article\心理故事\边际效用递减效应.jpg" />
+    <Content Include="Images\article\心理故事\边际效用递减效应s.jpg" />
+    <Content Include="Images\article\心理随笔\富翁的大房檐.jpg" />
+    <Content Include="Images\article\心理随笔\富翁的大房檐s.jpg" />
+    <Content Include="Images\article\心理随笔\当疾病来敲门.jpg" />
+    <Content Include="Images\article\心理随笔\当疾病来敲门s.jpg" />
+    <Content Include="Images\article\心理随笔\心理医生的眼光.jpg" />
+    <Content Include="Images\article\心理随笔\心理医生的眼光s.jpg" />
+    <Content Include="Images\article\心理随笔\懒惰是别样的勤快.jpg" />
+    <Content Include="Images\article\心理随笔\懒惰是别样的勤快s.jpg" />
+    <Content Include="Images\article\心理随笔\精神的慈善.jpg" />
+    <Content Include="Images\article\心理随笔\精神的慈善s.jpg" />
+    <Content Include="Images\article\心理随笔\随时随性随遇随缘随喜.jpg" />
+    <Content Include="Images\article\心理随笔\随时随性随遇随缘随喜s.jpg" />
+    <Content Include="Images\article\心理随笔\非典时期.jpg" />
+    <Content Include="Images\article\心理随笔\非典时期s.jpg" />
+    <Content Include="Images\article\职场\偷窥.jpg" />
+    <Content Include="Images\article\职场\偷窥s.jpg" />
+    <Content Include="Images\article\职场\压力1.jpg" />
+    <Content Include="Images\article\职场\压力1s.jpg" />
+    <Content Include="Images\article\职场\压力2.jpg" />
+    <Content Include="Images\article\职场\压力2s.jpg" />
+    <Content Include="Images\article\职场\哈伯德商业信条.jpg" />
+    <Content Include="Images\article\职场\哈伯德商业信条s.jpg" />
+    <Content Include="Images\article\职场\大悲无泪.jpg" />
+    <Content Include="Images\article\职场\大悲无泪s.jpg" />
+    <Content Include="Images\article\职场\给加西亚的信.jpg" />
+    <Content Include="Images\article\职场\给加西亚的信s.jpg" />
+    <Content Include="Images\article\职场\谁动了我的奶酪.jpg" />
+    <Content Include="Images\article\职场\谁动了我的奶酪s.jpg" />
+    <Content Include="Images\article\自我成长\一生的烦恼和一滴油.jpg" />
+    <Content Include="Images\article\自我成长\一生的烦恼和一滴油s.jpg" />
+    <Content Include="Images\article\自我成长\别被自己伤害.jpg" />
+    <Content Include="Images\article\自我成长\别被自己伤害s.jpg" />
+    <Content Include="Images\article\自我成长\善良是一种能力.jpg" />
+    <Content Include="Images\article\自我成长\善良是一种能力s.jpg" />
+    <Content Include="Images\article\自我成长\忘了它是谁.jpg" />
+    <Content Include="Images\article\自我成长\忘了它是谁s.jpg" />
+    <Content Include="Images\article\自我成长\真假钟馗.jpg" />
+    <Content Include="Images\article\自我成长\真假钟馗s.jpg" />
+    <Content Include="Images\article\自我成长\自恋.jpg" />
+    <Content Include="Images\article\自我成长\自恋s.jpg" />
+    <Content Include="Images\article\自我成长\谈自杀.jpg" />
+    <Content Include="Images\article\自我成长\谈自杀s.jpg" />
+    <Content Include="Images\article\自我成长\轻视论.jpg" />
+    <Content Include="Images\article\自我成长\轻视论s.jpg" />
     <Content Include="Images\contact\contact.png" />
     <Content Include="Images\contact\mail.png" />
     <Content Include="Images\contact\weibo.png" />
@@ -387,12 +524,12 @@
     <Content Include="Images\support\3.png" />
     <Content Include="Images\support\4.png" />
     <Content Include="Images\title.png" />
+    <Content Include="Images\train\flow.png" />
     <Content Include="Images\user\person.png" />
     <Content Include="Images\welcome.jpg" />
     <Content Include="Media\Video\0.jpg" />
     <Content Include="Media\Video\0.mp4" />
     <Content Include="Scripts\ajaxLogin.js" />
-    <Content Include="Scripts\baiduAnalytics.js" />
     <Content Include="Scripts\fineuploader\button.js" />
     <Content Include="Scripts\fineuploader\dnd.js" />
     <Content Include="Scripts\fineuploader\handler.base.js" />
@@ -570,6 +707,9 @@
     <Content Include="Views\About\CreateNews.cshtml" />
     <Content Include="Views\About\EditNews.cshtml" />
     <Content Include="Views\About\_CreateOrEditNews.cshtml" />
+    <Content Include="Views\Train\Index.cshtml" />
+    <Content Include="Views\Train\QA.cshtml" />
+    <None Include="Properties\PublishProfiles\本地.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -585,7 +725,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3344</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

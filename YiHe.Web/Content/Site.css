@@ -1190,3 +1190,24 @@ div.news-list-edit a:hover, div.news-list-new a:hover {
 #uploader-wrap {
     margin-left: 108px;
 }
+
+
+/* ---------------------------------------------------------------------------
+	train index page
+--------------------------------------------------------------------------- */
+.train-table {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 10px;
+}
+
+.train-table th, .train-table td {
+    border: 1px solid #999;
+    padding: 4px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.train-table th {
+    background-color: #ddd;
+}
